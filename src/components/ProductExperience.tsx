@@ -14,7 +14,7 @@ const products = [
     tagline: "O Clássico Eterno",
     description: "Batata crocante com sal na medida perfeita. O sabor que definiu uma geração.",
     image: pringlesOriginal,
-    bgColor: "#FFD700",
+    bgColor: "#E3000B",
     year: "1968",
     story: "Tudo começou com um desafio: criar a batata perfeita. O químico Fredric Baur inventou a forma hiperbólica parabólica que permitia empilhar cada batata perfeitamente dentro de uma lata cilíndrica. A receita original usa flocos de batata desidratada, amido de trigo e farinha de milho, prensados em moldes e fritos até atingir o crocante ideal. Temperada apenas com sal marinho, a Original é a prova de que a simplicidade é a forma mais sofisticada de genialidade.",
     ingredients: ["Flocos de batata", "Amido de trigo", "Óleo vegetal", "Sal marinho"],
