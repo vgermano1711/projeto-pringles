@@ -15,6 +15,16 @@ const chipBurst = [
   { x: 110, y: -200, rotate: -60, scale: 1.0 },
   { x: 0, y: -310, rotate: 10, scale: 1.15 },
   { x: -160, y: -60, rotate: 45, scale: 0.88 },
+  { x: -190, y: -180, rotate: -30, scale: 0.93 },
+  { x: 180, y: -170, rotate: 50, scale: 1.02 },
+  { x: -45, y: -340, rotate: -15, scale: 0.87 },
+  { x: 55, y: -330, rotate: 40, scale: 0.95 },
+  { x: -200, y: -110, rotate: 65, scale: 0.8 },
+  { x: 200, y: -100, rotate: -70, scale: 0.85 },
+  { x: 90, y: -300, rotate: 25, scale: 1.08 },
+  { x: -80, y: -310, rotate: -55, scale: 0.9 },
+  { x: 160, y: -250, rotate: 15, scale: 1.0 },
+  { x: -170, y: -220, rotate: -65, scale: 0.92 },
 ];
 
 const HeroSection = () => {
