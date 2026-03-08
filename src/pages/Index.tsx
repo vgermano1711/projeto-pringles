@@ -18,8 +18,6 @@ const Index = () => {
       <ProductExperience />
       <SectionDivider />
       <BrandStory />
-      <SectionDivider />
-      <CTASection />
       
       {/* Footer */}
       <footer className="border-t border-white/10 py-8" style={{
