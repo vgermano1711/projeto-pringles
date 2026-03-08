@@ -53,12 +53,14 @@ const HeroSection = () => {
     >
       {/* Background */}
       <div className="absolute inset-0 bg-pringles-red" />
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: "radial-gradient(circle at 2px 2px, #FFD700 1px, transparent 0)",
-          backgroundSize: "40px 40px",
-        }} />
-      </div>
+      <div
+        className="absolute inset-0 opacity-30 pointer-events-none"
+        style={{
+          backgroundImage: `url(${pringlesLogo})`,
+          backgroundSize: "120px",
+          backgroundRepeat: "repeat",
+        }}
+      />
 
       <motion.div style={{ opacity }} className="relative z-10 flex flex-col items-center gap-4 px-4 pt-20">
         {/* Logo */}
