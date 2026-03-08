@@ -45,22 +45,7 @@ const HeroSection = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Animated gradient background */}
-      <motion.div
-        className="absolute inset-0"
-        animate={{
-          background: [
-            "linear-gradient(135deg, #E3000B 0%, #FF4500 40%, #FFD700 100%)",
-            "linear-gradient(135deg, #FF4500 0%, #FFD700 40%, #E3000B 100%)",
-            "linear-gradient(135deg, #FFD700 0%, #E3000B 40%, #FF4500 100%)",
-            "linear-gradient(135deg, #E3000B 0%, #FF4500 40%, #FFD700 100%)",
-          ],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
+      <div className="absolute inset-0 bg-pringles-red" />
 
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
