@@ -47,7 +47,7 @@ const products = [
     tagline: "Queijo Intenso",
     description: "Cheddar forte e marcante. Para quem não dispensa um bom queijo.",
     image: pringlesCheddar,
-    bgColor: "linear-gradient(135deg, hsl(40, 100%, 50%), hsl(25, 100%, 40%))",
+    bgColor: "linear-gradient(135deg, #FFD700, #FFA500)",
     year: "1979",
     story: "Para criar o sabor perfeito de queijo, a equipe Pringles passou meses testando diferentes tipos de cheddar envelhecido. O resultado é uma combinação de cheddar sharp (maturado por mais de 12 meses) com cheddar mild, criando camadas de sabor que vão do suave ao intenso. O queijo é desidratado e moído em partículas microscópicas para aderir perfeitamente à superfície curva de cada batata, garantindo que cada mordida tenha a mesma explosão de sabor.",
     ingredients: ["Cheddar envelhecido", "Soro de leite", "Culturas lácteas", "Enzimas naturais"],
