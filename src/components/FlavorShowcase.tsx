@@ -49,7 +49,7 @@ const FlavorShowcase = () => {
 
   return (
     <section className="py-24 overflow-hidden relative" style={{
-      background: "linear-gradient(180deg, #8B0000 0%, #E3000B 30%, #CC0000 50%, #E3000B 70%, #8B0000 100%)"
+      background: "linear-gradient(180deg, #1A1A1A 0%, #FFD700 20%, #FFC107 50%, #FFD700 80%, #1A1A1A 100%)"
     }}>
       <div className="container mx-auto px-4">
         <motion.div

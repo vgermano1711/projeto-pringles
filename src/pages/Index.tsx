@@ -23,7 +23,7 @@ const Index = () => {
       
       {/* Footer */}
       <footer className="border-t border-white/10 py-8" style={{
-        background: "linear-gradient(180deg, #8B0000, #660000)"
+        background: "#111111"
       }}>
         <div className="container mx-auto px-4 text-center">
           <p className="text-primary-foreground/30 font-body text-sm">
