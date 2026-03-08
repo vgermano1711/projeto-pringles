@@ -3,11 +3,11 @@ import { useRef } from "react";
 import { ExternalLink, ShoppingCart } from "lucide-react";
 
 const stores = [
-  { name: "Amazon", url: "https://www.amazon.com.br/s?k=pringles", icon: "🛒", color: "hsl(30, 100%, 50%)", desc: "Entrega rápida para todo o Brasil" },
   { name: "Mercado Livre", url: "https://lista.mercadolivre.com.br/pringles", icon: "🤝", color: "hsl(48, 100%, 50%)", desc: "Melhores preços e frete grátis" },
   { name: "iFood", url: "https://www.ifood.com.br/busca?q=pringles", icon: "🍔", color: "hsl(0, 100%, 44%)", desc: "Receba em minutos na sua porta" },
   { name: "Rappi", url: "https://www.rappi.com.br/search?query=pringles", icon: "📦", color: "hsl(15, 90%, 50%)", desc: "Entrega ultra-rápida do mercado" },
   { name: "Pão de Açúcar", url: "https://www.paodeacucar.com/busca?terms=pringles", icon: "🛍️", color: "hsl(120, 40%, 40%)", desc: "Retire na loja ou receba em casa" },
+  { name: "Shopee", url: "https://shopee.com.br/search?keyword=pringles", icon: "🧡", color: "hsl(20, 100%, 55%)", desc: "Ofertas e cupons exclusivos" },
 ];
 
 const cardVariants = {
