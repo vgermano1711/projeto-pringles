@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { ChevronDown } from "lucide-react";
 import pringlesOriginal from "@/assets/pringles-original.png";
 import pringlesChips from "@/assets/pringles-chips.png";
 import pringlesLogo from "@/assets/pringles-logo.png";
@@ -18,7 +19,7 @@ const chipBurst = [
   { x: -160, y: -60, rotate: 45, scale: 0.88 },
 ];
 
-// Floating chips around the can with orbit-like positions
+// Floating chips around the can
 const floatingChips = [
   { x: -220, y: -80, rotate: 25, scale: 0.7, duration: 4.2, delay: 0.5 },
   { x: 230, y: -120, rotate: -35, scale: 0.65, duration: 3.8, delay: 0.8 },
@@ -48,12 +49,10 @@ const HeroSection = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Animated gradient background */}
+      {/* Background */}
       <div className="absolute inset-0 bg-pringles-red" />
-
-      {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: "radial-gradient(circle at 2px 2px, #FFD700 1px, transparent 0)",
@@ -61,8 +60,8 @@ const HeroSection = () => {
         }} />
       </div>
 
-      <motion.div style={{ opacity }} className="relative z-10 flex flex-col items-center gap-6 px-4 pt-20">
-        {/* Title */}
+      <motion.div style={{ opacity }} className="relative z-10 flex flex-col items-center gap-4 px-4 pt-20">
+        {/* Logo */}
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -70,14 +69,44 @@ const HeroSection = () => {
           className="text-center"
         >
           <img src={pringlesLogo} alt="Pringles" className="h-28 md:h-36 w-auto mx-auto" />
-          <p className="font-display text-xl md:text-2xl text-pringles-yellow mt-3">
-            ABRA A DIVERSÃO
-          </p>
         </motion.div>
 
+        {/* Tagline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="font-display text-2xl md:text-3xl text-pringles-yellow tracking-wide"
+        >
+          ABRA A DIVERSÃO
+        </motion.p>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="font-body text-base md:text-lg text-primary-foreground/80 max-w-md text-center"
+        >
+          Descubra os sabores icônicos de Pringles
+        </motion.p>
+
+        {/* CTA Button */}
+        <motion.a
+          href="#sabores"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-pringles-yellow-gradient text-pringles-dark font-display text-sm md:text-base px-8 py-3 rounded-full cursor-pointer uppercase tracking-wider mt-2"
+        >
+          Explorar Sabores
+        </motion.a>
+
         {/* Can + Chips Container */}
-        <div className="relative w-64 md:w-80 h-[400px] md:h-[500px]">
-          {/* Chips ejecting from the top opening of the can */}
+        <div className="relative w-64 md:w-80 h-[360px] md:h-[440px]">
+          {/* Burst chips */}
           {chipBurst.map((chip, i) => (
             <motion.div
               key={i}
@@ -99,13 +128,10 @@ const HeroSection = () => {
             >
               <motion.img
                 src={pringlesChips}
-                alt="Pringles chip"
+                alt=""
                 className="w-full h-full object-contain drop-shadow-lg"
                 style={{ filter: `hue-rotate(${i * 15}deg)` }}
-                animate={{
-                  y: [0, -6, 0],
-                  rotate: [0, 4, -4, 0],
-                }}
+                animate={{ y: [0, -6, 0], rotate: [0, 4, -4, 0] }}
                 transition={{
                   repeat: Infinity,
                   duration: 2.5 + i * 0.3,
@@ -116,24 +142,14 @@ const HeroSection = () => {
             </motion.div>
           ))}
 
-          {/* Floating chips around the can */}
+          {/* Floating chips */}
           {floatingChips.map((chip, i) => (
             <motion.div
               key={`float-${i}`}
               className="absolute left-1/2 top-1/2 w-10 h-10 md:w-14 md:h-14 z-5"
               initial={{ x: chip.x, y: chip.y, rotate: chip.rotate, scale: 0, opacity: 0 }}
-              animate={{
-                x: chip.x,
-                y: chip.y,
-                rotate: chip.rotate,
-                scale: chip.scale,
-                opacity: 0.85,
-              }}
-              transition={{
-                delay: 2.0 + chip.delay,
-                duration: 0.6,
-                ease: "easeOut",
-              }}
+              animate={{ x: chip.x, y: chip.y, rotate: chip.rotate, scale: chip.scale, opacity: 0.85 }}
+              transition={{ delay: 2.0 + chip.delay, duration: 0.6, ease: "easeOut" }}
             >
               <motion.img
                 src={pringlesChips}
@@ -146,40 +162,24 @@ const HeroSection = () => {
                   rotate: [chip.rotate, chip.rotate + 15, chip.rotate, chip.rotate - 10, chip.rotate],
                   scale: [chip.scale, chip.scale * 1.08, chip.scale, chip.scale * 0.95, chip.scale],
                 }}
-                transition={{
-                  repeat: Infinity,
-                  duration: chip.duration,
-                  ease: "easeInOut",
-                  delay: 2.5 + chip.delay,
-                }}
+                transition={{ repeat: Infinity, duration: chip.duration, ease: "easeInOut", delay: 2.5 + chip.delay }}
               />
             </motion.div>
           ))}
 
+          {/* Glow */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] z-0">
             <motion.div
               className="w-full h-full rounded-full"
-              style={{
-                background: "radial-gradient(circle, rgba(255,215,0,0.5) 0%, rgba(255,69,0,0.25) 40%, transparent 70%)",
-              }}
-              animate={{
-                scale: [1, 1.15, 1],
-                opacity: [0.6, 0.9, 0.6],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
+              style={{ background: "radial-gradient(circle, rgba(255,215,0,0.5) 0%, rgba(255,69,0,0.25) 40%, transparent 70%)" }}
+              animate={{ scale: [1, 1.15, 1], opacity: [0.6, 0.9, 0.6] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
 
-          {/* Main Can — shakes then pops open */}
+          {/* Main Can */}
           <motion.div
-            style={{
-              rotateZ: canRotate,
-              y: canY,
-            }}
+            style={{ rotateZ: canRotate, y: canY }}
             className="relative z-10 w-full h-full"
           >
             <motion.img
@@ -202,7 +202,24 @@ const HeroSection = () => {
             />
           </motion.div>
         </div>
+      </motion.div>
 
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.5, duration: 0.8 }}
+      >
+        <span className="text-primary-foreground/60 font-body text-xs uppercase tracking-widest">
+          Role para baixo
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+        >
+          <ChevronDown className="w-6 h-6 text-pringles-yellow" />
+        </motion.div>
       </motion.div>
     </section>
   );
