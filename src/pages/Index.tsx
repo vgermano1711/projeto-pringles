@@ -18,7 +18,9 @@ const Index = () => {
       <CTASection />
       
       {/* Footer */}
-      <footer className="bg-pringles-dark border-t border-primary-foreground/10 py-8">
+      <footer className="border-t border-primary-foreground/10 py-8" style={{
+        background: "linear-gradient(180deg, #1A1A1A, #0D0D0D)"
+      }}>
         <div className="container mx-auto px-4 text-center">
           <p className="text-primary-foreground/30 font-body text-sm">
             © 2026 Pringles — Once you pop, the fun don't stop! 🎉
