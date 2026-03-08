@@ -116,9 +116,10 @@ const ComprarSection = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate("/sabores")}
             className="bg-pringles-yellow-gradient text-pringles-dark font-display text-xl px-10 py-5 rounded-full shadow-2xl cursor-pointer"
           >
-            EXPLORAR TODOS OS SABORES 🔥
+            EXPLORAR TODOS OS SABORES
           </motion.button>
         </motion.div>
       </motion.div>
