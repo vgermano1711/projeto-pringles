@@ -11,10 +11,7 @@ const Navbar = () => {
       style={{ background: "hsl(var(--pringles-dark) / 0.8)" }}
     >
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
-        <div className="flex items-center gap-2">
-          <img src={pringlesLogo} alt="Pringles" className="h-10 w-auto" />
-          <span className="font-display text-lg tracking-wider text-pringles-red font-bold">PRINGLES</span>
-        </div>
+        <img src={pringlesLogo} alt="Pringles" className="h-12 w-auto" />
         <div className="hidden md:flex items-center gap-8">
           {["Sabores", "Produtos", "História", "Comprar"].map((item) => (
             <motion.a
