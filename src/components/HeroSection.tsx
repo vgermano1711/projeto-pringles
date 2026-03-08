@@ -91,19 +91,6 @@ const HeroSection = () => {
           Descubra os sabores icônicos de Pringles
         </motion.p>
 
-        {/* CTA Button */}
-        <motion.a
-          href="#sabores"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-pringles-yellow-gradient text-pringles-dark font-display text-sm md:text-base px-8 py-3 rounded-full cursor-pointer uppercase tracking-wider mt-2"
-        >
-          Explorar Sabores
-        </motion.a>
-
         {/* Can + Chips Container */}
         <div className="relative w-64 md:w-80 h-[360px] md:h-[440px]">
           {/* Burst chips */}
