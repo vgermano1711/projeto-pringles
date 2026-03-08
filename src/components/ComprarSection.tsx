@@ -19,7 +19,6 @@ const cardVariants = {
 };
 
 const ComprarSection = () => {
-  const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const bgScale = useTransform(scrollYProgress, [0, 0.5], [1.1, 1]);
