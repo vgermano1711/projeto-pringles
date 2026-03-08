@@ -58,7 +58,7 @@ const products = [
     tagline: "Sabor Italiano",
     description: "Tomate, queijo e orégano. Uma fatia de pizza em forma de batata.",
     image: pringlesPizza,
-    bgColor: "linear-gradient(135deg, hsl(10, 95%, 55%), hsl(0, 80%, 38%))",
+    bgColor: "linear-gradient(135deg, #B30009, #FFD700)",
     year: "1986",
     story: "A Pizza Pringles nasceu de um experimento ousado: transformar os sabores de uma pizza margherita em um snack portátil. A equipe viajou até Nápoles, Itália, para estudar os sabores autênticos de uma verdadeira pizza napolitana. O tempero combina tomate San Marzano desidratado, mozzarella em pó, orégano fresco seco e um toque de manjericão. O resultado é uma explosão de sabor italiano que transporta você direto para uma pizzaria em Nápoles.",
     ingredients: ["Tomate San Marzano", "Mozzarella em pó", "Orégano", "Manjericão"],
