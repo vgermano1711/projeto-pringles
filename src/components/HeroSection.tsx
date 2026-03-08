@@ -41,12 +41,30 @@ const HeroSection = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-pringles-gradient"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Animated gradient background */}
+      <motion.div
+        className="absolute inset-0"
+        animate={{
+          background: [
+            "linear-gradient(135deg, #E3000B 0%, #FF4500 40%, #FFD700 100%)",
+            "linear-gradient(135deg, #FF4500 0%, #FFD700 40%, #E3000B 100%)",
+            "linear-gradient(135deg, #FFD700 0%, #E3000B 40%, #FF4500 100%)",
+            "linear-gradient(135deg, #E3000B 0%, #FF4500 40%, #FFD700 100%)",
+          ],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
-          backgroundImage: "radial-gradient(circle at 2px 2px, hsl(var(--pringles-yellow)) 1px, transparent 0)",
+          backgroundImage: "radial-gradient(circle at 2px 2px, #FFD700 1px, transparent 0)",
           backgroundSize: "40px 40px",
         }} />
       </div>
@@ -107,6 +125,25 @@ const HeroSection = () => {
               />
             </motion.div>
           ))}
+
+          {/* Glow behind the can */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] z-0">
+            <motion.div
+              className="w-full h-full rounded-full"
+              style={{
+                background: "radial-gradient(circle, rgba(255,215,0,0.5) 0%, rgba(255,69,0,0.25) 40%, transparent 70%)",
+              }}
+              animate={{
+                scale: [1, 1.15, 1],
+                opacity: [0.6, 0.9, 0.6],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </div>
 
           {/* Main Can — shakes then pops open */}
           <motion.div
