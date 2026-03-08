@@ -152,12 +152,12 @@ const ProductExperience = () => {
                 <motion.span
                   initial={{ width: 0 }}
                   whileInView={{ width: "3rem" }}
-                  className="block h-1 bg-pringles-dark/30 mb-4"
+                  className="block h-1 bg-primary-foreground/50 mb-4"
                 />
-                <p className="text-pringles-dark/60 font-body text-sm uppercase tracking-widest mb-1">
+                <p className="text-primary-foreground/70 font-body text-sm uppercase tracking-widest mb-1">
                   {product.tagline}
                 </p>
-                <h3 className="font-display text-4xl text-pringles-dark">
+                <h3 className="font-display text-4xl text-primary-foreground">
                   {product.name}
                 </h3>
               </div>
