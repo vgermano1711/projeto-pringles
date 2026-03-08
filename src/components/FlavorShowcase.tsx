@@ -44,7 +44,6 @@ const flavors = [
 ];
 
 const FlavorShowcase = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <section id="sabores" className="py-24 overflow-hidden relative scroll-mt-16" style={{
