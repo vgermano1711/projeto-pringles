@@ -82,7 +82,7 @@ const HistoriaSection = () => {
                     >
                       {item.year}
                     </motion.span>
-                    <h3 className="font-display text-xl text-pringles-dark mt-1 mb-2">{item.title}</h3>
+                    <h3 className="font-rounded text-xl text-pringles-dark mt-1 mb-2">{item.title}</h3>
                     <p className="text-pringles-dark/70 font-body text-sm leading-relaxed">{item.desc}</p>
                   </motion.div>
                 </div>
