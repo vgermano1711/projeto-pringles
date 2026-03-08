@@ -8,6 +8,7 @@ import Sabores from "./pages/Sabores";
 import Produtos from "./pages/Produtos";
 import Historia from "./pages/Historia";
 import Comprar from "./pages/Comprar";
+import Contatos from "./pages/Contatos";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
