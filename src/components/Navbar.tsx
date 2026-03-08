@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import pringlesLogo from "@/assets/pringles-logo.png";
 
 const Navbar = () => {
   return (
@@ -10,9 +11,7 @@ const Navbar = () => {
       style={{ background: "hsl(var(--pringles-dark) / 0.8)" }}
     >
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
-        <span className="font-display text-2xl text-pringles-yellow">
-          PRINGLES
-        </span>
+        <img src={pringlesLogo} alt="Pringles" className="h-12 w-auto" />
         <div className="hidden md:flex items-center gap-8">
           {["Sabores", "Produtos", "História", "Comprar"].map((item) => (
             <motion.a
