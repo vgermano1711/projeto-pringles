@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import campaignImg from "@/assets/pringles-campaign.jpg";
+import campaignImg from "@/assets/pringles-hand.jpg";
 import pringlesLogo from "@/assets/pringles-logo.png";
 
 const CampaignSection = () => {
@@ -101,25 +101,13 @@ const CampaignSection = () => {
             >
               <img
                 src={campaignImg}
-                alt="Campanha Pringles — pessoa animada segurando uma lata"
+                alt="Mão levando uma batata Pringles à boca"
                 className="w-full max-w-md md:max-w-lg object-cover"
               />
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-pringles-red/40 via-transparent to-transparent" />
             </motion.div>
 
-            {/* Floating badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0, rotate: -20 }}
-              whileInView={{ opacity: 1, scale: 1, rotate: -6 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.7, type: "spring", stiffness: 200 }}
-              className="absolute -bottom-2 -left-2 md:bottom-8 md:-left-8 z-20 bg-pringles-yellow rounded-2xl px-5 py-3 shadow-xl"
-            >
-              <span className="font-display text-pringles-dark text-lg md:text-xl">
-                DESDE 1968 🥫
-              </span>
-            </motion.div>
 
             {/* Fun sticker */}
             <motion.div
