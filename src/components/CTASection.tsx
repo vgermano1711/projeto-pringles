@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 
 const CTASection = () => {
   return (
-    <section className="relative py-32 overflow-hidden bg-pringles-gradient">
+    <section className="relative py-32 overflow-hidden" style={{
+      background: "linear-gradient(135deg, #E3000B 0%, #FF4500 30%, #FFD700 60%, #FF4500 80%, #E3000B 100%)"
+    }}>
       {/* Animated background circles */}
       {[...Array(5)].map((_, i) => (
         <motion.div
