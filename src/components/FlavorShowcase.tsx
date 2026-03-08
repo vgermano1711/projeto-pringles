@@ -73,17 +73,13 @@ const FlavorShowcase = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              whileHover={{ y: -10, scale: 1.03 }}
               className="group relative cursor-pointer"
             >
               <div
-                className="relative rounded-2xl overflow-hidden p-6 flex flex-col items-center transition-shadow duration-300"
+                className="relative rounded-2xl overflow-hidden p-6 flex flex-col items-center transition-all duration-300 hover:-translate-y-3 hover:scale-[1.03]"
                 style={{
                   background: `linear-gradient(180deg, ${flavor.color}22, ${flavor.color}44)`,
                   border: `1px solid ${flavor.color}33`,
-                  boxShadow: hoveredIndex === index ? `0 12px 40px ${flavor.color}44` : "none",
                 }}
               >
                 {/* Can image */}
