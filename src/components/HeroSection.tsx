@@ -210,6 +210,9 @@ const HeroSection = () => {
           <ChevronDown className="w-6 h-6 text-pringles-yellow" />
         </motion.div>
       </motion.div>
+
+      {/* Smooth bottom fade into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-pringles-red z-[5] pointer-events-none" />
     </section>
   );
 };

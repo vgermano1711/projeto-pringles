@@ -136,8 +136,11 @@ const CampaignSection = () => {
         </div>
       </div>
 
-      {/* Bottom wave divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#1A1A1A] to-transparent" />
+      {/* Smooth top fade */}
+      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-pringles-red via-pringles-red/80 to-transparent z-[2] pointer-events-none" />
+
+      {/* Smooth bottom fade into dark */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1A1A1A] via-[#1A1A1A]/60 to-transparent z-[2] pointer-events-none" />
     </section>
   );
 };
