@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { ExternalLink, ShoppingCart } from "lucide-react";
 
 const stores = [
