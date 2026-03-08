@@ -99,15 +99,6 @@ const ProductExperience = () => {
             <h2 className="font-display text-5xl md:text-7xl text-primary-foreground mb-4">
               EXPERIÊNCIA <span className="text-pringles-yellow">ÚNICA</span>
             </h2>
-            <div className="flex items-center gap-3 text-primary-foreground/50 text-lg font-body">
-              <span>Deslize para explorar cada sabor</span>
-              <motion.span
-                animate={{ x: [0, 8, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-              >
-                →
-              </motion.span>
-            </div>
           </div>
 
           <div className="flex items-center gap-3">
