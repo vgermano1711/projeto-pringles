@@ -116,7 +116,46 @@ const HeroSection = () => {
             </motion.div>
           ))}
 
-          {/* Glow behind the can */}
+          {/* Floating chips around the can */}
+          {floatingChips.map((chip, i) => (
+            <motion.div
+              key={`float-${i}`}
+              className="absolute left-1/2 top-1/2 w-10 h-10 md:w-14 md:h-14 z-5"
+              initial={{ x: chip.x, y: chip.y, rotate: chip.rotate, scale: 0, opacity: 0 }}
+              animate={{
+                x: chip.x,
+                y: chip.y,
+                rotate: chip.rotate,
+                scale: chip.scale,
+                opacity: 0.85,
+              }}
+              transition={{
+                delay: 2.0 + chip.delay,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+            >
+              <motion.img
+                src={pringlesChips}
+                alt=""
+                className="w-full h-full object-contain drop-shadow-md"
+                style={{ filter: `hue-rotate(${i * 30}deg)` }}
+                animate={{
+                  y: [0, -12, 0, 8, 0],
+                  x: [0, 6, 0, -6, 0],
+                  rotate: [chip.rotate, chip.rotate + 15, chip.rotate, chip.rotate - 10, chip.rotate],
+                  scale: [chip.scale, chip.scale * 1.08, chip.scale, chip.scale * 0.95, chip.scale],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: chip.duration,
+                  ease: "easeInOut",
+                  delay: 2.5 + chip.delay,
+                }}
+              />
+            </motion.div>
+          ))}
+
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] z-0">
             <motion.div
               className="w-full h-full rounded-full"
