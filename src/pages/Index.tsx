@@ -4,7 +4,7 @@ import FlavorShowcase from "@/components/FlavorShowcase";
 import InteractiveChips from "@/components/InteractiveChips";
 import ProductExperience from "@/components/ProductExperience";
 import BrandStory from "@/components/BrandStory";
-import CTASection from "@/components/CTASection";
+
 import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
@@ -18,8 +18,6 @@ const Index = () => {
       <ProductExperience />
       <SectionDivider />
       <BrandStory />
-      <SectionDivider />
-      <CTASection />
       
       {/* Footer */}
       <footer className="border-t border-white/10 py-8" style={{
