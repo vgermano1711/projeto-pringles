@@ -15,8 +15,6 @@ const Index = () => {
       <SectionDivider />
       <FlavorShowcase />
       <SectionDivider />
-      <InteractiveChips />
-      <SectionDivider />
       <ProductExperience />
       <SectionDivider />
       <BrandStory />
