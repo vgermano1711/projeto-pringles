@@ -55,7 +55,7 @@ const InteractiveChips = () => {
 
   return (
     <section className="relative py-32 overflow-hidden" style={{
-      background: "linear-gradient(180deg, hsl(var(--pringles-dark)), hsl(48 100% 50% / 0.1), hsl(var(--pringles-dark)))"
+      background: "linear-gradient(180deg, #1A1A1A 0%, #3D2B00 30%, #5C4000 50%, #3D2B00 70%, #1A1A1A 100%)"
     }}>
       <motion.div
         style={{ x: springX, y: springY }}
