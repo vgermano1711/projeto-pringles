@@ -41,7 +41,7 @@ const FlavorShowcase = () => {
           className="text-center mb-16"
         >
           <span className="font-body text-sm uppercase tracking-[0.4em] text-pringles-red/80 mb-3 block">Descubra</span>
-          <h2 className="font-heading text-7xl md:text-9xl text-pringles-dark mb-4 tracking-wide">
+          <h2 className="font-display text-5xl md:text-7xl text-pringles-dark mb-4 tracking-wide">
             NOSSOS <span className="text-pringles-red">SABORES</span>
           </h2>
           <motion.div

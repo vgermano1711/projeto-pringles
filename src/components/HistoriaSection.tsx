@@ -29,7 +29,7 @@ const HistoriaSection = () => {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-20"
         >
-          <h2 className="font-rounded text-5xl md:text-7xl text-pringles-dark mb-4">
+          <h2 className="font-display text-5xl md:text-7xl text-pringles-dark mb-4">
             NOSSA <span className="text-pringles-red">HISTÓRIA</span>
           </h2>
           <motion.div
