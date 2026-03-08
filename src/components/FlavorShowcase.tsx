@@ -84,7 +84,7 @@ const FlavorShowcase = () => {
                   border: `1px solid ${flavor.color}33`,
                 }}
               >
-                <div className="relative z-10 w-32 h-48 mb-4 transition-transform duration-300 group-hover:scale-110">
+                <div className="relative z-10 w-20 h-32 mb-4 transition-transform duration-300 group-hover:scale-110">
                   <img
                     src={flavor.image}
                     alt={`Pringles ${flavor.name}`}
