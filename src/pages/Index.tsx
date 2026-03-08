@@ -1,24 +1,11 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import FlavorShowcase from "@/components/FlavorShowcase";
-import ProductExperience from "@/components/ProductExperience";
-import HistoriaSection from "@/components/HistoriaSection";
-import ComprarSection from "@/components/ComprarSection";
-import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
   return (
     <div className="min-h-screen" style={{ background: "#1A1A1A" }}>
       <Navbar />
       <HeroSection />
-      <SectionDivider />
-      <FlavorShowcase />
-      <SectionDivider />
-      <ProductExperience />
-      <SectionDivider />
-      <HistoriaSection />
-      <SectionDivider />
-      <ComprarSection />
 
       {/* Footer */}
       <footer className="border-t border-primary-foreground/10 py-8" style={{ background: "#111111" }}>
