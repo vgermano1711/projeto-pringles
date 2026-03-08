@@ -1,6 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { ShoppingBag, Sparkles } from "lucide-react";
+import pringlesLogo from "@/assets/pringles-logo.png";
 
 const HomeCTA = () => {
   const navigate = useNavigate();
@@ -14,6 +16,7 @@ const HomeCTA = () => {
     <section ref={ref} className="py-32 relative overflow-hidden" style={{
       background: "linear-gradient(135deg, #E3000B 0%, #FF4500 40%, #FFD700 100%)"
     }}>
+      {/* Animated rings */}
       {[...Array(3)].map((_, i) => (
         <motion.div
           key={i}
@@ -29,6 +32,17 @@ const HomeCTA = () => {
       ))}
 
       <motion.div style={{ scale, opacity }} className="relative z-10 container mx-auto px-4 text-center">
+        {/* Logo watermark */}
+        <motion.img
+          src={pringlesLogo}
+          alt=""
+          className="w-20 h-20 mx-auto mb-6 opacity-80"
+          initial={{ scale: 0, rotate: -20 }}
+          whileInView={{ scale: 1, rotate: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
+        />
+
         <motion.h2
           style={{ y: textY }}
           className="font-display text-5xl md:text-8xl text-primary-foreground mb-6 leading-tight"
@@ -42,34 +56,44 @@ const HomeCTA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-primary-foreground/70 text-xl mb-10 max-w-lg mx-auto font-body"
+          className="text-primary-foreground/70 text-xl mb-12 max-w-lg mx-auto font-body"
         >
           Escolha seu sabor favorito e descubra por que Pringles é o snack mais viciante do mundo.
         </motion.p>
 
+        {/* Visual CTA cards instead of simple buttons */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-5 justify-center max-w-2xl mx-auto"
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate("/sabores")}
-            className="bg-pringles-yellow-gradient text-pringles-dark font-display text-xl px-10 py-5 rounded-full shadow-2xl cursor-pointer border-none"
+          <motion.div
+            whileHover={{ scale: 1.04, y: -4 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => navigate("/produtos")}
+            className="flex-1 bg-black/20 backdrop-blur-md rounded-2xl p-6 cursor-pointer border border-primary-foreground/15 hover:border-pringles-yellow/50 transition-colors group"
           >
-            EXPLORAR SABORES 🔥
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            <Sparkles className="w-8 h-8 text-pringles-yellow mb-3 mx-auto group-hover:animate-bounce" />
+            <h3 className="font-display text-xl text-primary-foreground mb-1">EXPERIÊNCIA PRINGLES</h3>
+            <p className="font-body text-sm text-primary-foreground/50">
+              Conheça cada sabor, história e curiosidade
+            </p>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.04, y: -4 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => navigate("/comprar")}
-            className="border-2 border-primary-foreground/30 text-primary-foreground font-display text-xl px-10 py-5 rounded-full backdrop-blur-sm cursor-pointer bg-transparent hover:border-pringles-yellow hover:text-pringles-yellow transition-colors"
+            className="flex-1 bg-pringles-yellow rounded-2xl p-6 cursor-pointer border-none shadow-xl group"
           >
-            ONDE COMPRAR 🛒
-          </motion.button>
+            <ShoppingBag className="w-8 h-8 text-pringles-dark mb-3 mx-auto group-hover:animate-bounce" />
+            <h3 className="font-display text-xl text-pringles-dark mb-1">ONDE COMPRAR</h3>
+            <p className="font-body text-sm text-pringles-dark/60">
+              Encontre Pringles perto de você
+            </p>
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>
