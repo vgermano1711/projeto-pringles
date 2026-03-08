@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         display: ['"Archivo Black"', 'sans-serif'],
+        heading: ['"Bebas Neue"', 'sans-serif'],
         body: ['"Space Grotesk"', 'sans-serif'],
       },
       colors: {
