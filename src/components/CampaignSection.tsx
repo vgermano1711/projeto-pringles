@@ -12,15 +12,6 @@ const CampaignSection = () => {
 
   return (
     <section ref={ref} className="relative overflow-hidden bg-pringles-red">
-      {/* Subtle background pattern with Pringles logo */}
-      <div
-        className="absolute inset-0 opacity-30 pointer-events-none"
-        style={{
-          backgroundImage: `url(${pringlesLogo})`,
-          backgroundSize: "120px",
-          backgroundRepeat: "repeat",
-        }}
-      />
       <div className="container mx-auto px-4 py-20 md:py-0 relative z-[1]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 items-center min-h-[600px] md:min-h-[700px]">
           {/* Left — Text */}
