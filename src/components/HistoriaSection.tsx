@@ -78,7 +78,7 @@ const HistoriaSection = () => {
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 + index * 0.08 }}
-                      className="font-display text-pringles-red text-sm"
+                      className="font-rounded text-pringles-red text-sm"
                     >
                       {item.year}
                     </motion.span>
