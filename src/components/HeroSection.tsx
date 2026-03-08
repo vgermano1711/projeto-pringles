@@ -69,7 +69,7 @@ const HeroSection = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <img src={pringlesLogo} alt="Pringles" className="h-24 md:h-36 w-auto mx-auto" />
+              <img src={pringlesLogo} alt="Pringles" className="h-48 md:h-72 w-auto mx-auto" />
             </motion.div>
 
             <motion.p
