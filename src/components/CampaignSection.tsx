@@ -101,7 +101,7 @@ const CampaignSection = () => {
             >
               <img
                 src={campaignImg}
-                alt="Campanha Pringles — pessoa animada segurando uma lata"
+                alt="Mão levando uma batata Pringles à boca"
                 className="w-full max-w-md md:max-w-lg object-cover"
               />
               {/* Overlay gradient */}
