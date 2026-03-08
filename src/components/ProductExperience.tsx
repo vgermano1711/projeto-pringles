@@ -101,22 +101,22 @@ const ProductExperience = () => {
             </h2>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.05, opacity: 1 }}
+              whileTap={{ scale: 0.95 }}
               onClick={scrollLeft}
-              className="w-12 h-12 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center text-primary-foreground/70 hover:border-pringles-yellow hover:text-pringles-yellow transition-colors cursor-pointer"
+              className="w-9 h-9 rounded-full bg-primary-foreground/5 flex items-center justify-center text-primary-foreground/30 hover:text-primary-foreground/60 transition-all cursor-pointer"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={18} />
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.05, opacity: 1 }}
+              whileTap={{ scale: 0.95 }}
               onClick={scrollRight}
-              className="w-12 h-12 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center text-primary-foreground/70 hover:border-pringles-yellow hover:text-pringles-yellow transition-colors cursor-pointer"
+              className="w-9 h-9 rounded-full bg-primary-foreground/5 flex items-center justify-center text-primary-foreground/30 hover:text-primary-foreground/60 transition-all cursor-pointer"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={18} />
             </motion.button>
           </div>
         </motion.div>
