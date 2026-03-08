@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import CampaignSection from "@/components/CampaignSection";
 import FlavorPreview from "@/components/FlavorPreview";
+import FeedbackSection from "@/components/FeedbackSection";
 import HomeCTA from "@/components/HomeCTA";
 import SectionDivider from "@/components/SectionDivider";
 
@@ -13,6 +14,8 @@ const Index = () => {
       <CampaignSection />
       <SectionDivider />
       <FlavorPreview />
+      <SectionDivider />
+      <FeedbackSection />
       <SectionDivider />
       <HomeCTA />
 
