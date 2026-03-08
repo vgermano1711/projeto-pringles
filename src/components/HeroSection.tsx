@@ -38,22 +38,27 @@ const HeroSection = () => {
           <motion.div
             style={{ y: leftCanY }}
             className="relative w-32 sm:w-40 md:w-52 shrink-0"
-            initial={{ opacity: 0, x: -80, rotate: -8 }}
-            animate={{ opacity: 1, x: 0, rotate: -6 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+            initial={{ opacity: 0, x: -120, rotate: -20, scale: 0.7 }}
+            animate={{ opacity: 1, x: 0, rotate: -6, scale: 1 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
           >
             <motion.div
               className="absolute inset-0 -inset-x-6 rounded-full blur-[50px]"
               style={{ background: "radial-gradient(circle, rgba(255,215,0,0.3) 0%, transparent 70%)" }}
-              animate={{ opacity: [0.4, 0.7, 0.4] }}
+              animate={{ opacity: [0.3, 0.7, 0.3], scale: [0.9, 1.1, 0.9] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.img
               src={pringlesOriginal}
               alt="Pringles Original"
               className="relative z-10 w-full h-auto object-contain drop-shadow-2xl"
-              animate={{ rotate: [-6, -4, -6] }}
+              animate={{
+                rotate: [-6, -2, -6],
+                y: [0, -12, 0],
+                scale: [1, 1.03, 1],
+              }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ scale: 1.12, rotate: 0, transition: { type: "spring", stiffness: 300 } }}
             />
           </motion.div>
 
@@ -90,22 +95,27 @@ const HeroSection = () => {
           <motion.div
             style={{ y: rightCanY }}
             className="relative w-32 sm:w-40 md:w-52 shrink-0"
-            initial={{ opacity: 0, x: 80, rotate: 8 }}
-            animate={{ opacity: 1, x: 0, rotate: 6 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+            initial={{ opacity: 0, x: 120, rotate: 20, scale: 0.7 }}
+            animate={{ opacity: 1, x: 0, rotate: 6, scale: 1 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
           >
             <motion.div
               className="absolute inset-0 -inset-x-6 rounded-full blur-[50px]"
               style={{ background: "radial-gradient(circle, rgba(46,125,50,0.3) 0%, transparent 70%)" }}
-              animate={{ opacity: [0.4, 0.7, 0.4] }}
+              animate={{ opacity: [0.3, 0.7, 0.3], scale: [0.9, 1.1, 0.9] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             />
             <motion.img
               src={pringlesScream}
               alt="Pringles Sour Cream & Onion"
               className="relative z-10 w-full h-auto object-contain drop-shadow-2xl"
-              animate={{ rotate: [6, 4, 6] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+              animate={{
+                rotate: [6, 2, 6],
+                y: [0, -15, 0],
+                scale: [1, 1.04, 1],
+              }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              whileHover={{ scale: 1.12, rotate: 0, transition: { type: "spring", stiffness: 300 } }}
             />
           </motion.div>
         </div>
