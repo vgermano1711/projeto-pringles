@@ -137,32 +137,6 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* CTA Button */}
-        <motion.button
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 2.2, duration: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-pringles-yellow-gradient text-pringles-dark font-display text-xl md:text-2xl px-10 py-4 rounded-full shadow-lg animate-pulse-glow cursor-pointer"
-        >
-          ABRA A DIVERSÃO 🎉
-        </motion.button>
-      </motion.div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-      >
-        <div className="w-6 h-10 border-2 border-primary-foreground/50 rounded-full flex justify-center">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="w-1.5 h-3 bg-primary-foreground/70 rounded-full mt-1.5"
-          />
-        </div>
       </motion.div>
     </section>
   );
