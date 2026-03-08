@@ -69,7 +69,7 @@ const HeroSection = () => {
         }} />
       </div>
 
-      <motion.div style={{ opacity }} className="relative z-10 flex flex-col items-center gap-8 px-4">
+      <motion.div style={{ opacity }} className="relative z-10 flex flex-col items-center gap-6 px-4 pt-20">
         {/* Title */}
         <motion.div
           initial={{ y: -50, opacity: 0 }}
@@ -77,10 +77,10 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center"
         >
-          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl text-primary-foreground leading-none tracking-tight">
+          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl text-primary-foreground leading-none tracking-tight">
             PRINGLES
           </h1>
-          <p className="font-display text-2xl md:text-4xl text-pringles-yellow mt-2">
+          <p className="font-display text-xl md:text-2xl text-pringles-yellow mt-2">
             ABRA A DIVERSÃO
           </p>
         </motion.div>
