@@ -55,7 +55,7 @@ const InteractiveChips = () => {
 
   return (
     <section className="relative py-32 overflow-hidden" style={{
-      background: "linear-gradient(180deg, #1A1A1A 0%, #3D2B00 30%, #5C4000 50%, #3D2B00 70%, #1A1A1A 100%)"
+      background: "linear-gradient(180deg, #B8860B 0%, #FFD700 30%, #FFC107 50%, #FFD700 70%, #B8860B 100%)"
     }}>
       <motion.div
         style={{ x: springX, y: springY }}
@@ -73,11 +73,11 @@ const InteractiveChips = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-display text-5xl md:text-7xl text-primary-foreground mb-6">
+          <h2 className="font-display text-5xl md:text-7xl text-pringles-dark mb-6">
             IMPOSSÍVEL <br />
-            <span className="text-pringles-yellow">COMER SÓ UMA</span>
+            <span className="text-pringles-red">COMER SÓ UMA</span>
           </h2>
-          <p className="text-primary-foreground/60 text-xl max-w-xl mx-auto font-body">
+          <p className="text-pringles-dark/70 text-xl max-w-xl mx-auto font-body">
             Mova o mouse e sinta a energia das batatas mais famosas do mundo
           </p>
         </motion.div>

@@ -26,7 +26,7 @@ const brandFeatures = [
 const BrandStory = () => {
   return (
     <section className="py-24 relative overflow-hidden" style={{
-      background: "linear-gradient(180deg, #1A1A1A 0%, #4A1010 30%, #E3000B 50%, #4A1010 70%, #1A1A1A 100%)"
+      background: "linear-gradient(180deg, #B8860B 0%, #FFD700 25%, #FFA500 50%, #FFD700 75%, #B8860B 100%)"
     }}>
       <div className="container mx-auto px-4">
         <motion.div
@@ -35,11 +35,11 @@ const BrandStory = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="font-display text-5xl md:text-7xl text-primary-foreground mb-4">
+          <h2 className="font-display text-5xl md:text-7xl text-pringles-dark mb-4">
             O QUE NOS TORNA{" "}
-            <span className="text-pringles-yellow">ÚNICOS</span>
+            <span className="text-pringles-red">ÚNICOS</span>
           </h2>
-          <p className="text-primary-foreground/50 text-lg max-w-2xl mx-auto font-body">
+          <p className="text-pringles-dark/60 text-lg max-w-2xl mx-auto font-body">
             Mais do que um snack — uma experiência que virou cultura pop
           </p>
         </motion.div>
@@ -53,9 +53,9 @@ const BrandStory = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.5 }}
               whileHover={{ y: -5 }}
-              className="group p-8 rounded-2xl border border-primary-foreground/10 backdrop-blur-sm cursor-default"
+              className="group p-8 rounded-2xl border border-pringles-dark/10 backdrop-blur-sm cursor-default"
               style={{
-                background: "hsl(0 0% 100% / 0.03)",
+                background: "rgba(0,0,0,0.08)",
               }}
             >
               <motion.div
@@ -64,10 +64,10 @@ const BrandStory = () => {
               >
                 {feature.icon}
               </motion.div>
-              <h3 className="font-display text-2xl text-primary-foreground mb-3">
+              <h3 className="font-display text-2xl text-pringles-dark mb-3">
                 {feature.title}
               </h3>
-              <p className="text-primary-foreground/60 font-body leading-relaxed">
+              <p className="text-pringles-dark/70 font-body leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>
