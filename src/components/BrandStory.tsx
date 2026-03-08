@@ -26,7 +26,7 @@ const brandFeatures = [
 const BrandStory = () => {
   return (
     <section className="py-24 relative overflow-hidden" style={{
-      background: "linear-gradient(180deg, #1A1A1A 0%, #4A1010 30%, #E3000B 50%, #4A1010 70%, #1A1A1A 100%)"
+      background: "linear-gradient(180deg, #B8860B 0%, #FFD700 25%, #FFA500 50%, #FFD700 75%, #B8860B 100%)"
     }}>
       <div className="container mx-auto px-4">
         <motion.div

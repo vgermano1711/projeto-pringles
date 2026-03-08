@@ -88,7 +88,7 @@ const ProductExperience = () => {
 
   return (
     <section className="py-24" style={{
-      background: "linear-gradient(180deg, #1A1A1A 0%, #0D0D0D 30%, #2D0A0A 50%, #0D0D0D 70%, #1A1A1A 100%)"
+      background: "linear-gradient(180deg, #990000 0%, #CC0000 30%, #E3000B 50%, #CC0000 70%, #990000 100%)"
     }}>
       <div className="container mx-auto px-4 mb-12">
         <motion.div
