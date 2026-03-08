@@ -48,7 +48,7 @@ const FlavorShowcase = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 overflow-hidden relative" style={{
+    <section id="sabores" className="py-24 overflow-hidden relative scroll-mt-16" style={{
       background: "linear-gradient(180deg, #1A1A1A 0%, #FFD700 20%, #FFC107 50%, #FFD700 80%, #1A1A1A 100%)"
     }}>
       <div className="container mx-auto px-4">

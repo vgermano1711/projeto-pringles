@@ -87,7 +87,7 @@ const ProductExperience = () => {
   };
 
   return (
-    <section className="py-24" style={{
+    <section id="produtos" className="py-24 scroll-mt-16" style={{
       background: "linear-gradient(180deg, #1A1A1A 0%, #222222 30%, #2A2A2A 50%, #222222 70%, #1A1A1A 100%)"
     }}>
       <div className="container mx-auto px-4 mb-12">
