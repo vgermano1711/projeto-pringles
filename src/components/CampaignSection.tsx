@@ -45,13 +45,13 @@ const CampaignSection = () => {
               <br />
               <span className="text-pringles-yellow">GENIAIS</span>
               <br />
-              INÚTEIS.
+              IRRESISTÍVEIS.
               <br />
               <span className="text-primary-foreground/60 text-3xl md:text-4xl lg:text-5xl">
                 ESTÁ NO NOSSO
               </span>
               <br />
-              <span className="text-pringles-yellow">ADN.</span>
+              <span className="text-pringles-yellow">DNA.</span>
             </motion.h2>
 
             <motion.p
