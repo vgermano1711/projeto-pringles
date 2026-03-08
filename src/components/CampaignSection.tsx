@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import campaignImg from "@/assets/pringles-campaign.jpg";
+import campaignImg from "@/assets/pringles-hand.jpg";
 import pringlesLogo from "@/assets/pringles-logo.png";
 
 const CampaignSection = () => {
