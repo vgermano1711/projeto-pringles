@@ -1,12 +1,11 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, X, Clock, Flame, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { X, Clock, Flame, Sparkles, Star } from "lucide-react";
 import pringlesOriginal from "@/assets/pringles-original.png";
 import pringlesScream from "@/assets/pringles-sour-cream.png";
 import pringlesbbq from "@/assets/pringles-bbq.png";
 import pringlesCheddar from "@/assets/pringles-cheddar.png";
 import pringlesPizza from "@/assets/pringles-pizza.png";
-import pringlesChips from "@/assets/pringles-chips.png";
 
 const products = [
   {
@@ -14,9 +13,11 @@ const products = [
     tagline: "O Clássico Eterno",
     description: "Batata crocante com sal na medida perfeita. O sabor que definiu uma geração.",
     image: pringlesOriginal,
-    bgColor: "#E3000B",
+    accent: "from-red-600 to-red-800",
+    accentColor: "#E3000B",
+    featured: true,
     year: "1968",
-    story: "Tudo começou com um desafio: criar a batata perfeita. O químico Fredric Baur inventou a forma hiperbólica parabólica que permitia empilhar cada batata perfeitamente dentro de uma lata cilíndrica. A receita original usa flocos de batata desidratada, amido de trigo e farinha de milho, prensados em moldes e fritos até atingir o crocante ideal. Temperada apenas com sal marinho, a Original é a prova de que a simplicidade é a forma mais sofisticada de genialidade.",
+    story: "Tudo começou com um desafio: criar a batata perfeita. O químico Fredric Baur inventou a forma hiperbólica parabólica que permitia empilhar cada batata perfeitamente dentro de uma lata cilíndrica.",
     ingredients: ["Flocos de batata", "Amido de trigo", "Óleo vegetal", "Sal marinho"],
     funFact: "A forma da Pringles é chamada de 'paraboloide hiperbólico' — a mesma forma usada em estruturas arquitetônicas famosas!",
   },
@@ -25,197 +26,195 @@ const products = [
     tagline: "Frescura em Cada Mordida",
     description: "Creme azedo com toque de cebola. Suave, cremosa e viciante.",
     image: pringlesScream,
-    bgColor: "#E3000B",
+    accent: "from-green-600 to-green-800",
+    accentColor: "#2E7D32",
+    featured: true,
     year: "1971",
-    story: "Lançada poucos anos após a Original, a Sour Cream & Onion nasceu da tradição americana de combinar creme azedo com cebola em dips para festas. Os engenheiros de sabor da Pringles conseguiram capturar essa combinação clássica em pó, aplicando-a uniformemente sobre cada batata. O segredo está na proporção exata entre a acidez suave do creme e o toque adocicado da cebola caramelizada, criando um equilíbrio perfeito que se tornou um dos sabores mais vendidos do mundo.",
+    story: "Nasceu da tradição americana de combinar creme azedo com cebola em dips para festas. O equilíbrio entre acidez suave e cebola caramelizada tornou este um dos sabores mais vendidos do mundo.",
     ingredients: ["Creme azedo em pó", "Cebola desidratada", "Leitelho", "Salsa"],
     funFact: "Este sabor é o #1 em vendas em mais de 15 países ao redor do mundo!",
-  },
-  {
-    name: "BBQ",
-    tagline: "Sabor de Churrasco",
-    description: "Defumado e adocicado. O melhor do churrasco americano na palma da mão.",
-    image: pringlesbbq,
-    bgColor: "#E3000B",
-    year: "1975",
-    story: "Inspirada nos churrascos do sul dos Estados Unidos, a BBQ foi criada para capturar o sabor da carne defumada lentamente sobre madeira de carvalho. O tempero combina açúcar mascavo, páprica defumada, alho torrado e um toque de mostarda — os mesmos ingredientes de um autêntico molho barbecue americano. Cada batata passa por um processo de aplicação dupla de tempero para garantir intensidade máxima de sabor.",
-    ingredients: ["Páprica defumada", "Açúcar mascavo", "Alho torrado", "Mostarda em pó"],
-    funFact: "O tempero BBQ é aplicado duas vezes em cada batata para garantir um sabor extra intenso!",
   },
   {
     name: "Cheddar Cheese",
     tagline: "Queijo Intenso",
     description: "Cheddar forte e marcante. Para quem não dispensa um bom queijo.",
     image: pringlesCheddar,
-    bgColor: "#E3000B",
+    accent: "from-orange-500 to-orange-700",
+    accentColor: "#E65100",
+    featured: true,
     year: "1979",
-    story: "Para criar o sabor perfeito de queijo, a equipe Pringles passou meses testando diferentes tipos de cheddar envelhecido. O resultado é uma combinação de cheddar sharp (maturado por mais de 12 meses) com cheddar mild, criando camadas de sabor que vão do suave ao intenso. O queijo é desidratado e moído em partículas microscópicas para aderir perfeitamente à superfície curva de cada batata, garantindo que cada mordida tenha a mesma explosão de sabor.",
+    story: "Combinação de cheddar sharp maturado por 12 meses com cheddar mild, criando camadas de sabor do suave ao intenso em cada mordida.",
     ingredients: ["Cheddar envelhecido", "Soro de leite", "Culturas lácteas", "Enzimas naturais"],
     funFact: "São necessários 2kg de cheddar fresco para produzir o tempero de uma única lata!",
+  },
+  {
+    name: "BBQ",
+    tagline: "Sabor de Churrasco",
+    description: "Defumado e adocicado. O melhor do churrasco americano.",
+    image: pringlesbbq,
+    accent: "from-amber-700 to-amber-900",
+    accentColor: "#795548",
+    featured: false,
+    year: "1975",
+    story: "Inspirada nos churrascos do sul dos EUA, combina açúcar mascavo, páprica defumada, alho torrado e mostarda.",
+    ingredients: ["Páprica defumada", "Açúcar mascavo", "Alho torrado", "Mostarda em pó"],
+    funFact: "O tempero BBQ é aplicado duas vezes em cada batata para sabor extra intenso!",
   },
   {
     name: "Pizza",
     tagline: "Sabor Italiano",
     description: "Tomate, queijo e orégano. Uma fatia de pizza em forma de batata.",
     image: pringlesPizza,
-    bgColor: "#E3000B",
+    accent: "from-red-500 to-yellow-600",
+    accentColor: "#D84315",
+    featured: false,
     year: "1986",
-    story: "A Pizza Pringles nasceu de um experimento ousado: transformar os sabores de uma pizza margherita em um snack portátil. A equipe viajou até Nápoles, Itália, para estudar os sabores autênticos de uma verdadeira pizza napolitana. O tempero combina tomate San Marzano desidratado, mozzarella em pó, orégano fresco seco e um toque de manjericão. O resultado é uma explosão de sabor italiano que transporta você direto para uma pizzaria em Nápoles.",
+    story: "A equipe viajou até Nápoles para estudar os sabores autênticos de uma verdadeira pizza napolitana.",
     ingredients: ["Tomate San Marzano", "Mozzarella em pó", "Orégano", "Manjericão"],
-    funFact: "A equipe de desenvolvimento visitou mais de 30 pizzarias em Nápoles antes de finalizar a receita!",
+    funFact: "A equipe visitou mais de 30 pizzarias em Nápoles antes de finalizar a receita!",
   },
 ];
 
-const floatingChips = [
-  { x: -30, y: -20, rotate: -25, scale: 0.6, delay: 0 },
-  { x: 40, y: -35, rotate: 35, scale: 0.5, delay: 0.2 },
-  { x: -50, y: 30, rotate: 50, scale: 0.55, delay: 0.4 },
-  { x: 55, y: 25, rotate: -40, scale: 0.5, delay: 0.1 },
-  { x: 0, y: -50, rotate: 15, scale: 0.45, delay: 0.3 },
-];
-
 const ProductExperience = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedProduct, setSelectedProduct] = useState<number | null>(null);
 
-  const scrollLeft = () => {
-    scrollRef.current?.scrollBy({ left: -400, behavior: "smooth" });
-  };
-
-  const scrollRight = () => {
-    scrollRef.current?.scrollBy({ left: 400, behavior: "smooth" });
-  };
+  const featured = products.filter((p) => p.featured);
+  const others = products.filter((p) => !p.featured);
 
   return (
     <section id="produtos" className="py-24 scroll-mt-16" style={{
-      background: "linear-gradient(180deg, #1A1A1A 0%, #222222 30%, #2A2A2A 50%, #222222 70%, #1A1A1A 100%)"
+      background: "linear-gradient(180deg, #1A1A1A 0%, #222222 50%, #1A1A1A 100%)"
     }}>
-      <div className="container mx-auto px-4 mb-12">
+      <div className="container mx-auto px-4">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6"
+          className="text-center mb-16"
         >
-          <div>
-            <h2 className="font-display text-5xl md:text-7xl text-primary-foreground mb-4">
-              EXPERIÊNCIA <span className="text-pringles-yellow">ÚNICA</span>
-            </h2>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <motion.button
-              whileHover={{ scale: 1.05, opacity: 1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={scrollLeft}
-              className="w-9 h-9 rounded-full bg-primary-foreground/5 flex items-center justify-center text-primary-foreground/30 hover:text-primary-foreground/60 transition-all cursor-pointer"
-            >
-              <ChevronLeft size={18} />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05, opacity: 1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={scrollRight}
-              className="w-9 h-9 rounded-full bg-primary-foreground/5 flex items-center justify-center text-primary-foreground/30 hover:text-primary-foreground/60 transition-all cursor-pointer"
-            >
-              <ChevronRight size={18} />
-            </motion.button>
-          </div>
+          <span className="font-body text-sm uppercase tracking-[0.3em] text-pringles-yellow mb-4 block">
+            Nossos Produtos
+          </span>
+          <h2 className="font-display text-5xl md:text-7xl text-primary-foreground mb-4">
+            SABORES <span className="text-pringles-yellow">ICÔNICOS</span>
+          </h2>
+          <p className="font-body text-primary-foreground/50 text-lg max-w-lg mx-auto">
+            Os favoritos que conquistaram o mundo inteiro
+          </p>
         </motion.div>
-      </div>
 
-      <div
-        ref={scrollRef}
-        className="flex gap-6 overflow-x-auto px-8 pb-8 snap-x snap-mandatory scrollbar-hide"
-        style={{ scrollbarWidth: "none" }}
-      >
-        {products.map((product, index) => (
-          <motion.div
-            key={product.name}
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="flex-shrink-0 w-[85vw] md:w-[500px] snap-center cursor-pointer"
-            onClick={() => setSelectedProduct(index)}
-          >
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="relative rounded-3xl overflow-hidden h-[500px] p-8 flex flex-col justify-between group"
-              style={{ background: product.bgColor }}
-            >
-              <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                <span className="font-display text-[200px] leading-none select-none">
-                  {product.name.charAt(0)}
-                </span>
-              </div>
-
-              <div className="relative z-10">
-                <motion.span
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "3rem" }}
-                  className="block h-1 bg-primary-foreground/50 mb-4"
-                />
-                <p className="text-primary-foreground/70 font-body text-sm uppercase tracking-widest mb-1">
-                  {product.tagline}
-                </p>
-                <h3 className="font-display text-4xl text-primary-foreground">
-                  {product.name}
-                </h3>
-              </div>
-
+        {/* Featured — large cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {featured.map((product, index) => {
+            const globalIndex = products.indexOf(product);
+            return (
               <motion.div
-                whileHover={{ rotate: 5, scale: 1.1 }}
-                transition={{ type: "spring" }}
-                className="relative z-10 flex-1 flex items-center justify-center"
+                key={product.name}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 }}
+                onClick={() => setSelectedProduct(globalIndex)}
+                className="cursor-pointer group"
               >
-                {floatingChips.map((chip, i) => (
-                  <motion.img
-                    key={i}
-                    src={pringlesChips}
-                    alt=""
-                    className="absolute w-10 h-10 object-contain drop-shadow-md"
-                    style={{
-                      filter: `hue-rotate(${(index * 40) + (i * 20)}deg)`,
-                    }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{
-                      opacity: 0.85,
-                      scale: chip.scale,
-                      x: chip.x,
-                      y: chip.y,
-                      rotate: chip.rotate,
-                    }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + chip.delay, type: "spring", stiffness: 100 }}
-                    animate={{
-                      y: [chip.y - 4, chip.y + 4, chip.y - 4],
-                      rotate: [chip.rotate - 5, chip.rotate + 5, chip.rotate - 5],
-                    }}
-                  />
-                ))}
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="h-72 object-contain drop-shadow-2xl"
-                />
-              </motion.div>
-
-              <div className="relative z-10 flex items-center justify-between">
-                <p className="text-primary-foreground/80 font-body text-base flex-1">
-                  {product.description}
-                </p>
-                <motion.span
-                  className="ml-3 text-primary-foreground/50 font-body text-sm whitespace-nowrap group-hover:text-pringles-yellow transition-colors"
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
+                <motion.div
+                  whileHover={{ y: -8 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="relative rounded-3xl overflow-hidden h-[520px] flex flex-col"
+                  style={{ background: product.accentColor }}
                 >
-                  Clique para saber mais
-                </motion.span>
-              </div>
-            </motion.div>
-          </motion.div>
-        ))}
+                  {/* Star badge */}
+                  <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 bg-pringles-yellow rounded-full px-3 py-1">
+                    <Star className="w-3 h-3 text-pringles-dark fill-pringles-dark" />
+                    <span className="font-body text-xs font-semibold text-pringles-dark uppercase">Destaque</span>
+                  </div>
+
+                  {/* Large letter bg */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+                    <span className="font-display text-[220px] leading-none select-none text-primary-foreground">
+                      {product.name.charAt(0)}
+                    </span>
+                  </div>
+
+                  {/* Image */}
+                  <div className="flex-1 flex items-center justify-center relative z-10 pt-12 px-6">
+                    <motion.img
+                      src={product.image}
+                      alt={product.name}
+                      className="h-64 object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Info */}
+                  <div className="relative z-10 p-6 bg-gradient-to-t from-black/40 to-transparent">
+                    <p className="text-primary-foreground/60 font-body text-xs uppercase tracking-widest mb-1">
+                      {product.tagline}
+                    </p>
+                    <h3 className="font-display text-3xl text-primary-foreground mb-2">
+                      {product.name}
+                    </h3>
+                    <p className="text-primary-foreground/70 font-body text-sm line-clamp-2">
+                      {product.description}
+                    </p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Others — smaller cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-4"
+        >
+          <h3 className="font-display text-2xl text-primary-foreground/60 mb-6">
+            Mais Sabores
+          </h3>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {others.map((product, index) => {
+            const globalIndex = products.indexOf(product);
+            return (
+              <motion.div
+                key={product.name}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                onClick={() => setSelectedProduct(globalIndex)}
+                className="cursor-pointer group"
+              >
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  className="relative rounded-2xl overflow-hidden flex items-center gap-6 p-6 h-44"
+                  style={{ background: product.accentColor }}
+                >
+                  <motion.img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-32 object-contain drop-shadow-xl shrink-0 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="relative z-10">
+                    <p className="text-primary-foreground/50 font-body text-xs uppercase tracking-widest mb-1">
+                      {product.tagline}
+                    </p>
+                    <h3 className="font-display text-2xl text-primary-foreground mb-1">
+                      {product.name}
+                    </h3>
+                    <p className="text-primary-foreground/70 font-body text-sm">
+                      {product.description}
+                    </p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
 
       {/* Story Modal */}
@@ -228,10 +227,8 @@ const ProductExperience = () => {
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedProduct(null)}
           >
-            {/* Backdrop */}
             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
 
-            {/* Modal */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -239,9 +236,8 @@ const ProductExperience = () => {
               transition={{ type: "spring", stiffness: 200, damping: 25 }}
               onClick={(e) => e.stopPropagation()}
               className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl"
-              style={{ background: products[selectedProduct].bgColor }}
+              style={{ background: products[selectedProduct].accentColor }}
             >
-              {/* Close button */}
               <motion.button
                 whileHover={{ scale: 1.1, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
@@ -252,7 +248,6 @@ const ProductExperience = () => {
               </motion.button>
 
               <div className="p-8 md:p-12">
-                {/* Header */}
                 <div className="flex flex-col md:flex-row items-center gap-8 mb-10">
                   <motion.img
                     src={products[selectedProduct].image}
@@ -263,37 +258,21 @@ const ProductExperience = () => {
                     transition={{ type: "spring", delay: 0.2 }}
                   />
                   <div>
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 }}
-                      className="flex items-center gap-2 mb-2"
-                    >
+                    <div className="flex items-center gap-2 mb-2">
                       <Clock size={16} className="text-primary-foreground/60" />
                       <span className="text-primary-foreground/60 font-body text-sm">
                         Desde {products[selectedProduct].year}
                       </span>
-                    </motion.div>
-                    <motion.h3
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.15 }}
-                      className="font-display text-4xl md:text-5xl text-primary-foreground mb-2"
-                    >
+                    </div>
+                    <h3 className="font-display text-4xl md:text-5xl text-primary-foreground mb-2">
                       {products[selectedProduct].name}
-                    </motion.h3>
-                    <motion.p
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.2 }}
-                      className="font-display text-xl text-pringles-yellow"
-                    >
+                    </h3>
+                    <p className="font-display text-xl text-pringles-yellow">
                       {products[selectedProduct].tagline}
-                    </motion.p>
+                    </p>
                   </div>
                 </div>
 
-                {/* Story */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -309,7 +288,6 @@ const ProductExperience = () => {
                   </p>
                 </motion.div>
 
-                {/* Ingredients */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -335,16 +313,13 @@ const ProductExperience = () => {
                   </div>
                 </motion.div>
 
-                {/* Fun Fact */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                   className="bg-black/20 backdrop-blur-sm rounded-2xl p-6 border border-primary-foreground/10"
                 >
-                  <p className="font-display text-lg text-pringles-yellow mb-2">
-                    💡 CURIOSIDADE
-                  </p>
+                  <p className="font-display text-lg text-pringles-yellow mb-2">💡 CURIOSIDADE</p>
                   <p className="text-primary-foreground/80 font-body text-base">
                     {products[selectedProduct].funFact}
                   </p>
