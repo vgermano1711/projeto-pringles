@@ -49,7 +49,7 @@ const FlavorShowcase = () => {
 
   return (
     <section className="py-24 overflow-hidden relative" style={{
-      background: "linear-gradient(180deg, #8B0000 0%, #E3000B 30%, #CC0000 50%, #E3000B 70%, #8B0000 100%)"
+      background: "linear-gradient(180deg, #1A1A1A 0%, #FFD700 20%, #FFC107 50%, #FFD700 80%, #1A1A1A 100%)"
     }}>
       <div className="container mx-auto px-4">
         <motion.div
@@ -59,10 +59,10 @@ const FlavorShowcase = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-5xl md:text-7xl text-primary-foreground mb-4">
-            NOSSOS <span className="text-pringles-yellow">SABORES</span>
+          <h2 className="font-display text-5xl md:text-7xl text-pringles-dark mb-4">
+            NOSSOS <span className="text-pringles-red">SABORES</span>
           </h2>
-          <p className="text-primary-foreground/60 text-lg max-w-2xl mx-auto font-body">
+          <p className="text-pringles-dark/60 text-lg max-w-2xl mx-auto font-body">
             Descubra toda a variedade de sabores que vão fazer você não conseguir parar
           </p>
         </motion.div>
