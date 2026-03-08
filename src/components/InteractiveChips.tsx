@@ -73,11 +73,11 @@ const InteractiveChips = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-display text-5xl md:text-7xl text-primary-foreground mb-6">
+          <h2 className="font-display text-5xl md:text-7xl text-pringles-dark mb-6">
             IMPOSSÍVEL <br />
-            <span className="text-pringles-yellow">COMER SÓ UMA</span>
+            <span className="text-pringles-red">COMER SÓ UMA</span>
           </h2>
-          <p className="text-primary-foreground/60 text-xl max-w-xl mx-auto font-body">
+          <p className="text-pringles-dark/70 text-xl max-w-xl mx-auto font-body">
             Mova o mouse e sinta a energia das batatas mais famosas do mundo
           </p>
         </motion.div>

@@ -53,9 +53,9 @@ const BrandStory = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.5 }}
               whileHover={{ y: -5 }}
-              className="group p-8 rounded-2xl border border-primary-foreground/10 backdrop-blur-sm cursor-default"
+              className="group p-8 rounded-2xl border border-pringles-dark/10 backdrop-blur-sm cursor-default"
               style={{
-                background: "hsl(0 0% 100% / 0.03)",
+                background: "rgba(0,0,0,0.08)",
               }}
             >
               <motion.div
@@ -64,10 +64,10 @@ const BrandStory = () => {
               >
                 {feature.icon}
               </motion.div>
-              <h3 className="font-display text-2xl text-primary-foreground mb-3">
+              <h3 className="font-display text-2xl text-pringles-dark mb-3">
                 {feature.title}
               </h3>
-              <p className="text-primary-foreground/60 font-body leading-relaxed">
+              <p className="text-pringles-dark/70 font-body leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>
