@@ -1,17 +1,20 @@
-import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import pringlesOriginal from "@/assets/pringles-original.png";
 import pringlesChips from "@/assets/pringles-chips.png";
 
+// Chips burst from the top of the can opening, arcing outward
 const chipBurst = [
-  { x: -140, y: -180, rotate: -45, scale: 1.1 },
-  { x: 150, y: -160, rotate: 30, scale: 1 },
-  { x: -80, y: -240, rotate: 60, scale: 0.9 },
-  { x: 100, y: -220, rotate: -20, scale: 1.05 },
-  { x: -180, y: -100, rotate: 40, scale: 0.85 },
-  { x: 170, y: -80, rotate: -55, scale: 0.95 },
-  { x: -40, y: -280, rotate: 15, scale: 1.15 },
-  { x: 50, y: -260, rotate: -35, scale: 0.9 },
+  { x: -60, y: -200, rotate: -50, scale: 1.0 },
+  { x: 70, y: -220, rotate: 35, scale: 1.05 },
+  { x: -130, y: -150, rotate: 55, scale: 0.9 },
+  { x: 140, y: -130, rotate: -40, scale: 0.95 },
+  { x: -20, y: -280, rotate: 20, scale: 1.1 },
+  { x: 30, y: -260, rotate: -25, scale: 0.85 },
+  { x: -100, y: -240, rotate: 70, scale: 0.92 },
+  { x: 110, y: -200, rotate: -60, scale: 1.0 },
+  { x: 0, y: -310, rotate: 10, scale: 1.15 },
+  { x: -160, y: -60, rotate: 45, scale: 0.88 },
 ];
 
 const HeroSection = () => {
@@ -56,47 +59,46 @@ const HeroSection = () => {
 
         {/* Can + Chips Container */}
         <div className="relative w-64 md:w-80 h-[400px] md:h-[500px]">
-          {/* Chips bursting out of the can */}
+          {/* Chips ejecting from the top opening of the can */}
           {chipBurst.map((chip, i) => (
             <motion.div
               key={i}
-              className="absolute left-1/2 top-[35%] w-14 h-14 md:w-18 md:h-18 -translate-x-1/2"
-              initial={{ x: 0, y: 0, rotate: 0, scale: 0, opacity: 0 }}
+              className="absolute left-1/2 top-[10%] w-12 h-12 md:w-16 md:h-16 -translate-x-1/2 z-20"
+              initial={{ x: 0, y: 40, rotate: 0, scale: 0, opacity: 0 }}
               animate={{
-                x: chip.x,
-                y: chip.y,
-                rotate: chip.rotate,
-                scale: chip.scale,
-                opacity: 1,
+                x: [0, chip.x * 0.3, chip.x],
+                y: [40, chip.y * 0.5, chip.y],
+                rotate: [0, chip.rotate * 0.5, chip.rotate],
+                scale: [0, chip.scale * 1.2, chip.scale],
+                opacity: [0, 1, 1],
               }}
               transition={{
-                delay: 1.2 + i * 0.1,
-                duration: 0.8,
-                type: "spring",
-                stiffness: 80,
-                damping: 12,
+                delay: 1.4 + i * 0.08,
+                duration: 0.7,
+                ease: [0.22, 1, 0.36, 1],
+                times: [0, 0.4, 1],
               }}
             >
               <motion.img
                 src={pringlesChips}
                 alt="Pringles chip"
                 className="w-full h-full object-contain drop-shadow-lg"
-                style={{ filter: `hue-rotate(${i * 12}deg)` }}
+                style={{ filter: `hue-rotate(${i * 15}deg)` }}
                 animate={{
-                  y: [0, -8, 0],
-                  rotate: [0, 5, -5, 0],
+                  y: [0, -6, 0],
+                  rotate: [0, 4, -4, 0],
                 }}
                 transition={{
                   repeat: Infinity,
-                  duration: 3 + i * 0.4,
+                  duration: 2.5 + i * 0.3,
                   ease: "easeInOut",
-                  delay: 2 + i * 0.2,
+                  delay: 2.5 + i * 0.15,
                 }}
               />
             </motion.div>
           ))}
 
-          {/* Main Can with shake before burst */}
+          {/* Main Can — shakes then pops open */}
           <motion.div
             style={{
               rotateZ: canRotate,
@@ -108,16 +110,18 @@ const HeroSection = () => {
               src={pringlesOriginal}
               alt="Pringles Original Can"
               className="w-full h-full object-contain drop-shadow-2xl"
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.8, opacity: 0, y: 60 }}
               animate={{
-                scale: [0.8, 1, 1, 1.03, 0.98, 1],
+                scale: [0.8, 1, 1, 1.04, 0.97, 1],
                 opacity: 1,
+                y: [60, 0, 0, -8, 2, 0],
+                rotate: [0, 0, -2, 3, -1, 0],
               }}
               transition={{
-                duration: 1.2,
+                duration: 1.4,
                 ease: "easeOut",
                 delay: 0.3,
-                times: [0, 0.5, 0.7, 0.8, 0.9, 1],
+                times: [0, 0.45, 0.65, 0.78, 0.9, 1],
               }}
             />
           </motion.div>
@@ -127,7 +131,7 @@ const HeroSection = () => {
         <motion.button
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 2, duration: 0.6 }}
+          transition={{ delay: 2.2, duration: 0.6 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="bg-pringles-yellow-gradient text-pringles-dark font-display text-xl md:text-2xl px-10 py-4 rounded-full shadow-lg animate-pulse-glow cursor-pointer"
