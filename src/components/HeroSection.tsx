@@ -63,10 +63,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center"
         >
-          <div className="flex flex-col items-center">
-            <img src={pringlesLogo} alt="Pringles" className="h-20 md:h-24 w-auto mx-auto" />
-            <span className="font-display text-4xl md:text-5xl tracking-wider text-pringles-red font-bold mt-1">PRINGLES</span>
-          </div>
+          <img src={pringlesLogo} alt="Pringles" className="h-28 md:h-36 w-auto mx-auto" />
           <p className="font-display text-xl md:text-2xl text-pringles-yellow mt-3">
             ABRA A DIVERSÃO
           </p>
