@@ -9,7 +9,7 @@ import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
   return (
-    <div className="min-h-screen" style={{ background: "#E3000B" }}>
+    <div className="min-h-screen" style={{ background: "#1A1A1A" }}>
       <Navbar />
       <HeroSection />
       <SectionDivider />
