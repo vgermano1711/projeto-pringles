@@ -126,6 +126,25 @@ const HeroSection = () => {
             </motion.div>
           ))}
 
+          {/* Glow behind the can */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] z-0">
+            <motion.div
+              className="w-full h-full rounded-full"
+              style={{
+                background: "radial-gradient(circle, rgba(255,215,0,0.5) 0%, rgba(255,69,0,0.25) 40%, transparent 70%)",
+              }}
+              animate={{
+                scale: [1, 1.15, 1],
+                opacity: [0.6, 0.9, 0.6],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </div>
+
           {/* Main Can — shakes then pops open */}
           <motion.div
             style={{
