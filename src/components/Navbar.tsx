@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import pringlesLogo from "@/assets/pringles-logo-clean.png";
+import pringlesLogo from "@/assets/pringles-logo-final.png";
 
 const Navbar = () => {
   return (
