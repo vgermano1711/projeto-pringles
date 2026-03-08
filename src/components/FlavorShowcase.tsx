@@ -92,7 +92,7 @@ const FlavorShowcase = () => {
                   />
                 </div>
                 <div className="relative z-10 text-center">
-                  <h3 className="font-display text-lg text-primary-foreground mb-2">
+                  <h3 className="font-heading text-2xl tracking-wide text-primary-foreground mb-2">
                     {flavor.name}
                   </h3>
                   <p className="text-primary-foreground/70 text-sm font-body opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
