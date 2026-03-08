@@ -4,7 +4,7 @@ import pringlesOriginal from "@/assets/pringles-original.png";
 import pringlesChips from "@/assets/pringles-chips.png";
 import pringlesLogo from "@/assets/pringles-logo.png";
 
-// Chips burst from the top of the can opening, arcing outward
+// Chips that burst from the can top
 const chipBurst = [
   { x: -60, y: -200, rotate: -50, scale: 1.0 },
   { x: 70, y: -220, rotate: 35, scale: 1.05 },
@@ -16,16 +16,22 @@ const chipBurst = [
   { x: 110, y: -200, rotate: -60, scale: 1.0 },
   { x: 0, y: -310, rotate: 10, scale: 1.15 },
   { x: -160, y: -60, rotate: 45, scale: 0.88 },
-  { x: -190, y: -180, rotate: -30, scale: 0.93 },
-  { x: 180, y: -170, rotate: 50, scale: 1.02 },
-  { x: -45, y: -340, rotate: -15, scale: 0.87 },
-  { x: 55, y: -330, rotate: 40, scale: 0.95 },
-  { x: -200, y: -110, rotate: 65, scale: 0.8 },
-  { x: 200, y: -100, rotate: -70, scale: 0.85 },
-  { x: 90, y: -300, rotate: 25, scale: 1.08 },
-  { x: -80, y: -310, rotate: -55, scale: 0.9 },
-  { x: 160, y: -250, rotate: 15, scale: 1.0 },
-  { x: -170, y: -220, rotate: -65, scale: 0.92 },
+];
+
+// Floating chips around the can with orbit-like positions
+const floatingChips = [
+  { x: -220, y: -80, rotate: 25, scale: 0.7, duration: 4.2, delay: 0.5 },
+  { x: 230, y: -120, rotate: -35, scale: 0.65, duration: 3.8, delay: 0.8 },
+  { x: -180, y: 100, rotate: 50, scale: 0.6, duration: 5.0, delay: 0.2 },
+  { x: 200, y: 80, rotate: -20, scale: 0.75, duration: 4.5, delay: 1.0 },
+  { x: -260, y: -200, rotate: 40, scale: 0.55, duration: 3.5, delay: 0.3 },
+  { x: 270, y: -180, rotate: -55, scale: 0.5, duration: 4.8, delay: 0.7 },
+  { x: -140, y: 180, rotate: -30, scale: 0.68, duration: 4.0, delay: 1.2 },
+  { x: 160, y: 160, rotate: 60, scale: 0.58, duration: 3.6, delay: 0.9 },
+  { x: -300, y: 20, rotate: 15, scale: 0.52, duration: 5.2, delay: 0.4 },
+  { x: 310, y: -30, rotate: -45, scale: 0.62, duration: 4.3, delay: 0.6 },
+  { x: -80, y: 220, rotate: 70, scale: 0.48, duration: 3.9, delay: 1.1 },
+  { x: 100, y: -280, rotate: -10, scale: 0.56, duration: 4.7, delay: 0.1 },
 ];
 
 const HeroSection = () => {
@@ -110,7 +116,46 @@ const HeroSection = () => {
             </motion.div>
           ))}
 
-          {/* Glow behind the can */}
+          {/* Floating chips around the can */}
+          {floatingChips.map((chip, i) => (
+            <motion.div
+              key={`float-${i}`}
+              className="absolute left-1/2 top-1/2 w-10 h-10 md:w-14 md:h-14 z-5"
+              initial={{ x: chip.x, y: chip.y, rotate: chip.rotate, scale: 0, opacity: 0 }}
+              animate={{
+                x: chip.x,
+                y: chip.y,
+                rotate: chip.rotate,
+                scale: chip.scale,
+                opacity: 0.85,
+              }}
+              transition={{
+                delay: 2.0 + chip.delay,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+            >
+              <motion.img
+                src={pringlesChips}
+                alt=""
+                className="w-full h-full object-contain drop-shadow-md"
+                style={{ filter: `hue-rotate(${i * 30}deg)` }}
+                animate={{
+                  y: [0, -12, 0, 8, 0],
+                  x: [0, 6, 0, -6, 0],
+                  rotate: [chip.rotate, chip.rotate + 15, chip.rotate, chip.rotate - 10, chip.rotate],
+                  scale: [chip.scale, chip.scale * 1.08, chip.scale, chip.scale * 0.95, chip.scale],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: chip.duration,
+                  ease: "easeInOut",
+                  delay: 2.5 + chip.delay,
+                }}
+              />
+            </motion.div>
+          ))}
+
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] z-0">
             <motion.div
               className="w-full h-full rounded-full"
