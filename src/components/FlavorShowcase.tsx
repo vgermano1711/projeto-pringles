@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import pringlesOriginal from "@/assets/pringles-original.png";
 import pringlesScream from "@/assets/pringles-sour-cream.png";
 import pringlesbbq from "@/assets/pringles-bbq.png";
