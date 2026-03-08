@@ -75,6 +75,10 @@
   .font-heading {
     font-family: 'Bebas Neue', sans-serif;
   }
+  .font-rounded {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+  }
   .font-body {
     font-family: 'Space Grotesk', sans-serif;
   }

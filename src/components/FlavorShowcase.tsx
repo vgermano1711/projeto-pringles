@@ -148,7 +148,7 @@ const FlavorShowcase = () => {
                   />
                 </div>
                 <div className="relative z-10 text-center">
-                  <h3 className="font-heading text-lg tracking-wide text-primary-foreground">
+                  <h3 className="font-rounded text-base text-primary-foreground">
                     {flavor.name}
                   </h3>
                   <span className="font-body text-xs text-primary-foreground/50">40g</span>
