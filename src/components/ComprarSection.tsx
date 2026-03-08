@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { ExternalLink, ShoppingCart } from "lucide-react";
 
 const stores = [
@@ -10,19 +11,29 @@ const stores = [
   { name: "Pão de Açúcar", url: "#", icon: "🛍️", color: "hsl(120, 40%, 40%)", desc: "Retire na loja ou receba em casa" },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 60, scale: 0.9 },
+  show: (i: number) => ({
+    opacity: 1, y: 0, scale: 1,
+    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+  }),
+};
+
 const ComprarSection = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const bgScale = useTransform(scrollYProgress, [0, 0.5], [1.1, 1]);
+
   return (
-    <section id="comprar" className="py-24 relative overflow-hidden" style={{
+    <section ref={ref} id="comprar" className="py-24 relative overflow-hidden" style={{
       background: "linear-gradient(135deg, #E3000B 0%, #FF4500 30%, #FFD700 60%, #FF4500 80%, #E3000B 100%)"
     }}>
-      {/* Animated bg circles */}
       {[...Array(4)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute rounded-full border border-primary-foreground/10"
           style={{
-            width: `${200 + i * 150}px`,
-            height: `${200 + i * 150}px`,
+            width: `${200 + i * 150}px`, height: `${200 + i * 150}px`,
             left: "50%", top: "50%", x: "-50%", y: "-50%",
           }}
           animate={{ scale: [1, 1.1, 1], rotate: [0, 360] }}
@@ -30,16 +41,24 @@ const ComprarSection = () => {
         />
       ))}
 
-      <div className="relative z-10 container mx-auto px-4">
+      <motion.div style={{ scale: bgScale }} className="relative z-10 container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
           <h2 className="font-display text-5xl md:text-8xl text-primary-foreground mb-4">
             ONDE <span className="text-pringles-yellow">COMPRAR</span>
           </h2>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "6rem" }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="h-1 bg-pringles-yellow rounded-full mx-auto mb-4"
+          />
           <p className="text-primary-foreground/70 text-lg max-w-lg mx-auto font-body">
             Escolha sua loja favorita e garanta suas Pringles agora mesmo
           </p>
@@ -50,21 +69,28 @@ const ComprarSection = () => {
             <motion.a
               key={store.name}
               href={store.url}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -8, scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="group relative rounded-2xl p-6 backdrop-blur-sm border border-primary-foreground/15 cursor-pointer block"
+              custom={index}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-30px" }}
+              className="group relative rounded-2xl p-6 backdrop-blur-sm border border-primary-foreground/15 cursor-pointer block transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.03]"
               style={{ background: "rgba(0,0,0,0.2)" }}
             >
-              <motion.div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
+              <div
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ background: `radial-gradient(circle at center, ${store.color}33, transparent 70%)` }}
               />
               <div className="relative z-10">
-                <span className="text-4xl mb-3 block">{store.icon}</span>
+                <motion.span
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + index * 0.1, type: "spring", stiffness: 300 }}
+                  className="text-4xl mb-3 block"
+                >
+                  {store.icon}
+                </motion.span>
                 <h3 className="font-display text-xl text-primary-foreground mb-1">{store.name}</h3>
                 <p className="text-primary-foreground/60 font-body text-sm mb-4">{store.desc}</p>
                 <div className="flex items-center gap-2 text-pringles-yellow font-body text-sm font-semibold group-hover:gap-3 transition-all">
@@ -77,11 +103,11 @@ const ComprarSection = () => {
           ))}
         </div>
 
-        {/* Big CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
           className="text-center mt-16"
         >
           <motion.button
@@ -92,7 +118,7 @@ const ComprarSection = () => {
             EXPLORAR TODOS OS SABORES 🔥
           </motion.button>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };
