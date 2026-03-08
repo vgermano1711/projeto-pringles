@@ -25,7 +25,7 @@ const products = [
     tagline: "Frescura em Cada Mordida",
     description: "Creme azedo com toque de cebola. Suave, cremosa e viciante.",
     image: pringlesScream,
-    bgColor: "linear-gradient(135deg, hsl(140, 70%, 40%), hsl(160, 80%, 28%))",
+    bgColor: "linear-gradient(135deg, #FFD700, #E3000B)",
     year: "1971",
     story: "Lançada poucos anos após a Original, a Sour Cream & Onion nasceu da tradição americana de combinar creme azedo com cebola em dips para festas. Os engenheiros de sabor da Pringles conseguiram capturar essa combinação clássica em pó, aplicando-a uniformemente sobre cada batata. O segredo está na proporção exata entre a acidez suave do creme e o toque adocicado da cebola caramelizada, criando um equilíbrio perfeito que se tornou um dos sabores mais vendidos do mundo.",
     ingredients: ["Creme azedo em pó", "Cebola desidratada", "Leitelho", "Salsa"],
