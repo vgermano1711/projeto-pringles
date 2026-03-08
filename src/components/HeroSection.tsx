@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import pringlesOriginal from "@/assets/pringles-original.png";
 import pringlesChips from "@/assets/pringles-chips.png";
+import pringlesLogoNew from "@/assets/pringles-logo-new.png";
 
 // Chips burst from the top of the can opening, arcing outward
 const chipBurst = [
@@ -77,10 +78,8 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center"
         >
-          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl text-primary-foreground leading-none tracking-tight">
-            PRINGLES
-          </h1>
-          <p className="font-display text-xl md:text-2xl text-pringles-yellow mt-2">
+          <img src={pringlesLogoNew} alt="Pringles" className="h-28 md:h-36 w-auto mx-auto" />
+          <p className="font-display text-xl md:text-2xl text-pringles-yellow mt-3">
             ABRA A DIVERSÃO
           </p>
         </motion.div>
