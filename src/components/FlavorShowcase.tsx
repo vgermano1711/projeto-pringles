@@ -40,7 +40,8 @@ const FlavorShowcase = () => {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-5xl md:text-7xl text-pringles-dark mb-4">
+          <span className="font-body text-sm uppercase tracking-[0.4em] text-pringles-red/80 mb-3 block">Descubra</span>
+          <h2 className="font-heading text-7xl md:text-9xl text-pringles-dark mb-4 tracking-wide">
             NOSSOS <span className="text-pringles-red">SABORES</span>
           </h2>
           <motion.div
@@ -50,8 +51,8 @@ const FlavorShowcase = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="h-1 bg-pringles-red rounded-full mx-auto mb-4"
           />
-          <p className="text-pringles-dark/60 text-lg max-w-2xl mx-auto font-body">
-            Descubra toda a variedade de sabores que vão fazer você não conseguir parar
+          <p className="text-pringles-dark/50 text-lg max-w-2xl mx-auto font-body tracking-wide">
+            A variedade de sabores que vão fazer você não conseguir parar
           </p>
         </motion.div>
 
@@ -60,7 +61,7 @@ const FlavorShowcase = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="font-display text-2xl text-pringles-dark mb-6"
+          className="font-heading text-3xl tracking-wider text-pringles-dark mb-6"
         >
           LATA CLÁSSICA <span className="text-pringles-dark/50 font-body text-base">— 114g</span>
         </motion.h3>
@@ -91,7 +92,7 @@ const FlavorShowcase = () => {
                   />
                 </div>
                 <div className="relative z-10 text-center">
-                  <h3 className="font-display text-lg text-primary-foreground mb-2">
+                  <h3 className="font-heading text-2xl tracking-wide text-primary-foreground mb-2">
                     {flavor.name}
                   </h3>
                   <p className="text-primary-foreground/70 text-sm font-body opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
@@ -108,7 +109,7 @@ const FlavorShowcase = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="font-display text-2xl text-pringles-dark mb-2"
+          className="font-heading text-3xl tracking-wider text-pringles-dark mb-2"
         >
           MINI LATA <span className="text-pringles-dark/50 font-body text-base">— 40g</span>
         </motion.h3>
