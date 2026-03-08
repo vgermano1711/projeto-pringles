@@ -80,7 +80,7 @@
     font-weight: 900;
   }
   .font-body {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Nunito', sans-serif;
   }
   .text-gradient-pringles {
     background: linear-gradient(135deg, hsl(var(--pringles-red)), hsl(var(--pringles-yellow)));

@@ -17,7 +17,7 @@ export default {
         display: ['"Archivo Black"', 'sans-serif'],
         heading: ['"Bebas Neue"', 'sans-serif'],
         rounded: ['"Nunito"', 'sans-serif'],
-        body: ['"Space Grotesk"', 'sans-serif'],
+        body: ['"Nunito"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
