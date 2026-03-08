@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import pringlesOriginal from "@/assets/pringles-original.png";
+import pringlesScream from "@/assets/pringles-sour-cream.png";
 import pringlesLogo from "@/assets/pringles-logo.png";
 
 const HeroSection = () => {
@@ -11,7 +12,8 @@ const HeroSection = () => {
     offset: ["start start", "end start"],
   });
 
-  const canY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const leftCanY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const rightCanY = useTransform(scrollYProgress, [0, 1], [0, -70]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
@@ -30,58 +32,83 @@ const HeroSection = () => {
         }}
       />
 
-      <motion.div style={{ opacity }} className="relative z-10 flex flex-col items-center gap-6 px-4 pt-20">
-        {/* Logo */}
-        <motion.div
-          initial={{ y: -40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <img src={pringlesLogo} alt="Pringles" className="h-28 md:h-36 w-auto mx-auto" />
-        </motion.div>
-
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="font-display text-2xl md:text-3xl text-pringles-yellow tracking-wide"
-        >
-          ABRA A DIVERSÃO
-        </motion.p>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="font-body text-base md:text-lg text-primary-foreground/80 max-w-md text-center"
-        >
-          Descubra os sabores icônicos de Pringles
-        </motion.p>
-
-        {/* Clean Can */}
-        <motion.div
-          style={{ y: canY }}
-          className="relative w-52 md:w-64 mt-2"
-        >
-          {/* Subtle glow behind can */}
+      <motion.div style={{ opacity }} className="relative z-10 w-full max-w-6xl mx-auto px-4 pt-20">
+        <div className="flex items-center justify-between gap-4 md:gap-8">
+          {/* Left can */}
           <motion.div
-            className="absolute inset-0 -inset-x-8 -inset-y-4 rounded-full blur-[60px]"
-            style={{ background: "radial-gradient(circle, rgba(255,215,0,0.35) 0%, transparent 70%)" }}
-            animate={{ opacity: [0.5, 0.8, 0.5] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
+            style={{ y: leftCanY }}
+            className="relative w-32 sm:w-40 md:w-52 shrink-0"
+            initial={{ opacity: 0, x: -80, rotate: -8 }}
+            animate={{ opacity: 1, x: 0, rotate: -6 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          >
+            <motion.div
+              className="absolute inset-0 -inset-x-6 rounded-full blur-[50px]"
+              style={{ background: "radial-gradient(circle, rgba(255,215,0,0.3) 0%, transparent 70%)" }}
+              animate={{ opacity: [0.4, 0.7, 0.4] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.img
+              src={pringlesOriginal}
+              alt="Pringles Original"
+              className="relative z-10 w-full h-auto object-contain drop-shadow-2xl"
+              animate={{ rotate: [-6, -4, -6] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </motion.div>
 
-          <motion.img
-            src={pringlesOriginal}
-            alt="Pringles Original"
-            className="relative z-10 w-full h-auto object-contain drop-shadow-2xl"
-            initial={{ scale: 0.9, opacity: 0, y: 40 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          />
-        </motion.div>
+          {/* Center content */}
+          <div className="flex flex-col items-center gap-4 md:gap-6 text-center flex-1 min-w-0">
+            <motion.div
+              initial={{ y: -40, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <img src={pringlesLogo} alt="Pringles" className="h-24 md:h-36 w-auto mx-auto" />
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="font-display text-xl sm:text-2xl md:text-3xl text-pringles-yellow tracking-wide"
+            >
+              ABRA A DIVERSÃO
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="font-body text-sm md:text-lg text-primary-foreground/80 max-w-md"
+            >
+              Descubra os sabores icônicos de Pringles
+            </motion.p>
+          </div>
+
+          {/* Right can */}
+          <motion.div
+            style={{ y: rightCanY }}
+            className="relative w-32 sm:w-40 md:w-52 shrink-0"
+            initial={{ opacity: 0, x: 80, rotate: 8 }}
+            animate={{ opacity: 1, x: 0, rotate: 6 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+          >
+            <motion.div
+              className="absolute inset-0 -inset-x-6 rounded-full blur-[50px]"
+              style={{ background: "radial-gradient(circle, rgba(46,125,50,0.3) 0%, transparent 70%)" }}
+              animate={{ opacity: [0.4, 0.7, 0.4] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            />
+            <motion.img
+              src={pringlesScream}
+              alt="Pringles Sour Cream & Onion"
+              className="relative z-10 w-full h-auto object-contain drop-shadow-2xl"
+              animate={{ rotate: [6, 4, 6] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* Scroll indicator */}
