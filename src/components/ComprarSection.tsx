@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { ExternalLink, ShoppingCart } from "lucide-react";
 
 const stores = [
@@ -20,7 +19,6 @@ const cardVariants = {
 };
 
 const ComprarSection = () => {
-  const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const bgScale = useTransform(scrollYProgress, [0, 0.5], [1.1, 1]);
@@ -106,22 +104,6 @@ const ComprarSection = () => {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.9 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="text-center mt-16"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate("/sabores")}
-            className="bg-pringles-yellow-gradient text-pringles-dark font-display text-xl px-10 py-5 rounded-full shadow-2xl cursor-pointer"
-          >
-            EXPLORAR TODOS OS SABORES
-          </motion.button>
-        </motion.div>
       </motion.div>
     </section>
   );
