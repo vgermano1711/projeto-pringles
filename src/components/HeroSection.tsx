@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import pringlesOriginal from "@/assets/pringles-original.png";
 import pringlesChips from "@/assets/pringles-chips.png";
-import pringlesLogoNew from "@/assets/pringles-logo-new.png";
+import pringlesLogoClean from "@/assets/pringles-logo-clean.png";
 
 // Chips burst from the top of the can opening, arcing outward
 const chipBurst = [
