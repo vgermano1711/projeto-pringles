@@ -36,7 +36,7 @@ const products = [
     tagline: "Sabor de Churrasco",
     description: "Defumado e adocicado. O melhor do churrasco americano na palma da mão.",
     image: pringlesbbq,
-    bgColor: "#FFD700",
+    bgColor: "#E3000B",
     year: "1975",
     story: "Inspirada nos churrascos do sul dos Estados Unidos, a BBQ foi criada para capturar o sabor da carne defumada lentamente sobre madeira de carvalho. O tempero combina açúcar mascavo, páprica defumada, alho torrado e um toque de mostarda — os mesmos ingredientes de um autêntico molho barbecue americano. Cada batata passa por um processo de aplicação dupla de tempero para garantir intensidade máxima de sabor.",
     ingredients: ["Páprica defumada", "Açúcar mascavo", "Alho torrado", "Mostarda em pó"],
