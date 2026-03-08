@@ -35,11 +35,11 @@ const BrandStory = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="font-display text-5xl md:text-7xl text-primary-foreground mb-4">
+          <h2 className="font-display text-5xl md:text-7xl text-pringles-dark mb-4">
             O QUE NOS TORNA{" "}
-            <span className="text-pringles-yellow">ÚNICOS</span>
+            <span className="text-pringles-red">ÚNICOS</span>
           </h2>
-          <p className="text-primary-foreground/50 text-lg max-w-2xl mx-auto font-body">
+          <p className="text-pringles-dark/60 text-lg max-w-2xl mx-auto font-body">
             Mais do que um snack — uma experiência que virou cultura pop
           </p>
         </motion.div>
