@@ -10,6 +10,7 @@ import Historia from "./pages/Historia";
 import Comprar from "./pages/Comprar";
 import Contatos from "./pages/Contatos";
 import NotFound from "./pages/NotFound";
+import SacButton from "./components/SacButton";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <SacButton />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
