@@ -39,7 +39,7 @@ const CampaignSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-primary-foreground leading-[0.95] mb-8"
+              className="font-display text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-[0.95] mb-8"
             >
               IDEIAS
               <br />
@@ -47,7 +47,7 @@ const CampaignSection = () => {
               <br />
               IRRESISTÍVEIS.
               <br />
-              <span className="text-primary-foreground/60 text-3xl md:text-4xl lg:text-5xl">
+              <span className="text-primary-foreground/60 text-2xl md:text-3xl lg:text-4xl">
                 ESTÁ NO NOSSO
               </span>
               <br />
