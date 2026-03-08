@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         display: ['"Archivo Black"', 'sans-serif'],
         heading: ['"Bebas Neue"', 'sans-serif'],
+        rounded: ['"Nunito"', 'sans-serif'],
         body: ['"Space Grotesk"', 'sans-serif'],
       },
       colors: {
