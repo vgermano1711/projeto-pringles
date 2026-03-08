@@ -69,6 +69,8 @@ const ComprarSection = () => {
             <motion.a
               key={store.name}
               href={store.url}
+              target="_blank"
+              rel="noopener noreferrer"
               custom={index}
               variants={cardVariants}
               initial="hidden"
