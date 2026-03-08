@@ -14,7 +14,7 @@ const CampaignSection = () => {
     <section ref={ref} className="relative overflow-hidden bg-pringles-red">
       {/* Subtle background pattern with Pringles logo */}
       <div
-        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
           backgroundImage: `url(${pringlesLogo})`,
           backgroundSize: "120px",
