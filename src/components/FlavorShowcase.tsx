@@ -71,67 +71,42 @@ const FlavorShowcase = () => {
           {flavors.map((flavor, index) => (
             <motion.div
               key={flavor.name}
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
+              whileHover={{ y: -10, scale: 1.03 }}
               className="group relative cursor-pointer"
             >
-              <motion.div
-                animate={{
-                  scale: hoveredIndex === index ? 1.05 : 1,
-                  y: hoveredIndex === index ? -10 : 0,
-                }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="relative rounded-2xl overflow-hidden p-6 flex flex-col items-center"
+              <div
+                className="relative rounded-2xl overflow-hidden p-6 flex flex-col items-center transition-shadow duration-300"
                 style={{
                   background: `linear-gradient(180deg, ${flavor.color}22, ${flavor.color}44)`,
                   border: `1px solid ${flavor.color}33`,
+                  boxShadow: hoveredIndex === index ? `0 12px 40px ${flavor.color}44` : "none",
                 }}
               >
-                {/* Glow effect on hover */}
-                <motion.div
-                  animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
-                  className="absolute inset-0 rounded-2xl"
-                  style={{
-                    background: `radial-gradient(circle at center, ${flavor.color}33, transparent 70%)`,
-                  }}
-                />
-
                 {/* Can image */}
-                <motion.div
-                  animate={{
-                    rotateY: hoveredIndex === index ? 15 : 0,
-                    scale: hoveredIndex === index ? 1.1 : 1,
-                  }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                  className="relative z-10 w-32 h-48 mb-4"
-                >
+                <div className="relative z-10 w-32 h-48 mb-4 transition-transform duration-300 group-hover:scale-110">
                   <img
                     src={flavor.image}
                     alt={`Pringles ${flavor.name}`}
                     className="w-full h-full object-contain drop-shadow-lg"
                   />
-                </motion.div>
+                </div>
 
                 {/* Flavor info */}
                 <div className="relative z-10 text-center">
                   <h3 className="font-display text-lg text-primary-foreground mb-2">
                     {flavor.name}
                   </h3>
-                  <motion.p
-                    animate={{
-                      opacity: hoveredIndex === index ? 1 : 0,
-                      height: hoveredIndex === index ? "auto" : 0,
-                    }}
-                    className="text-primary-foreground/70 text-sm font-body overflow-hidden"
-                  >
+                  <p className="text-primary-foreground/70 text-sm font-body opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
                     {flavor.description}
-                  </motion.p>
+                  </p>
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </div>
