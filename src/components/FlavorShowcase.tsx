@@ -61,7 +61,7 @@ const FlavorShowcase = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="font-display text-2xl text-pringles-dark mb-6"
+          className="font-heading text-3xl tracking-wider text-pringles-dark mb-6"
         >
           LATA CLÁSSICA <span className="text-pringles-dark/50 font-body text-base">— 114g</span>
         </motion.h3>
