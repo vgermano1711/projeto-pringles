@@ -109,7 +109,7 @@ const FlavorShowcase = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="font-display text-2xl text-pringles-dark mb-2"
+          className="font-heading text-3xl tracking-wider text-pringles-dark mb-2"
         >
           MINI LATA <span className="text-pringles-dark/50 font-body text-base">— 40g</span>
         </motion.h3>
