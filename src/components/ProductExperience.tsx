@@ -200,11 +200,11 @@ const ProductExperience = () => {
               </motion.div>
 
               <div className="relative z-10 flex items-center justify-between">
-                <p className="text-pringles-dark/70 font-body text-base flex-1">
+                <p className="text-primary-foreground/80 font-body text-base flex-1">
                   {product.description}
                 </p>
                 <motion.span
-                  className="ml-3 text-pringles-dark/40 font-body text-sm whitespace-nowrap group-hover:text-pringles-red transition-colors"
+                  className="ml-3 text-primary-foreground/50 font-body text-sm whitespace-nowrap group-hover:text-pringles-yellow transition-colors"
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ repeat: Infinity, duration: 2 }}
                 >
