@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import CampaignSection from "@/components/CampaignSection";
 import FlavorPreview from "@/components/FlavorPreview";
-import Testimonials from "@/components/Testimonials";
 import HomeCTA from "@/components/HomeCTA";
 import SectionDivider from "@/components/SectionDivider";
 
@@ -10,10 +10,9 @@ const Index = () => {
     <div className="min-h-screen" style={{ background: "#1A1A1A" }}>
       <Navbar />
       <HeroSection />
+      <CampaignSection />
       <SectionDivider />
       <FlavorPreview />
-      <SectionDivider />
-      <Testimonials />
       <SectionDivider />
       <HomeCTA />
 
