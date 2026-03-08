@@ -78,16 +78,7 @@ const HeroSection = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="font-display text-xl sm:text-2xl md:text-3xl text-pringles-yellow tracking-wide"
             >
-              ABRA A DIVERSÃO
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="font-body text-sm md:text-lg text-primary-foreground/80 max-w-md"
-            >
-              Descubra os sabores icônicos de Pringles
+              DESCUBRA OS SABORES ICÔNICOS DA PRINGLES
             </motion.p>
           </div>
 
