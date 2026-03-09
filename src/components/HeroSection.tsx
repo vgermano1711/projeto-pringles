@@ -112,23 +112,6 @@ const HeroSection = () => {
         </div>
       </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-      >
-        <span className="text-primary-foreground/60 font-body text-xs uppercase tracking-widest">
-          Role para baixo
-        </span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        >
-          <ChevronDown className="w-6 h-6 text-pringles-yellow" />
-        </motion.div>
-      </motion.div>
 
       {/* Smooth bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-pringles-red z-[5] pointer-events-none" />

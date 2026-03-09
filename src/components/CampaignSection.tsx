@@ -45,7 +45,7 @@ const CampaignSection = () => {
               <br />
               <span className="text-pringles-yellow">GENIAIS</span>
               <br />
-              IRRESISTÍVEIS.
+              IRRESISTÍVEIS
               <br />
               <span className="text-primary-foreground/60 text-2xl md:text-3xl lg:text-4xl">
                 ESTÁ NO NOSSO
