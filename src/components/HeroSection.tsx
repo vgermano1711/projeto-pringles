@@ -64,14 +64,6 @@ const HeroSection = () => {
 
           {/* Center content */}
           <div className="flex flex-col items-center gap-4 md:gap-6 text-center flex-1 min-w-0">
-            <motion.div
-              initial={{ y: -40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <img src={pringlesLogo} alt="Pringles" className="h-48 md:h-72 w-auto mx-auto object-contain" style={{ transform: 'rotate(0deg)' }} />
-            </motion.div>
-
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
