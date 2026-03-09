@@ -54,17 +54,48 @@ const HeroSection = () => {
             />
           </motion.div>
 
-          {/* Center content */}
-          <div className="flex flex-col items-center gap-4 md:gap-6 text-center flex-1 min-w-0">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="font-display text-xl sm:text-2xl md:text-3xl text-pringles-yellow tracking-wide"
+          {/* Center cans */}
+          <div className="flex items-center gap-2 md:gap-6 flex-1 justify-center">
+            <motion.div
+              className="w-28 sm:w-36 md:w-44"
+              initial={{ opacity: 0, y: 80, scale: 0.6 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
             >
-              DESCUBRA OS SABORES ICÔNICOS DA PRINGLES
-            </motion.p>
+              <motion.img
+                src={pringlesCheddar}
+                alt="Pringles Cheddar"
+                className="w-full h-auto object-contain drop-shadow-2xl"
+                animate={{ y: [0, -10, 0], rotate: [-3, 3, -3] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{ scale: 1.12, transition: { type: "spring", stiffness: 300 } }}
+              />
+            </motion.div>
+            <motion.div
+              className="w-28 sm:w-36 md:w-44"
+              initial={{ opacity: 0, y: 80, scale: 0.6 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.7 }}
+            >
+              <motion.img
+                src={pringlesBbq}
+                alt="Pringles BBQ"
+                className="w-full h-auto object-contain drop-shadow-2xl"
+                animate={{ y: [0, -13, 0], rotate: [3, -3, 3] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                whileHover={{ scale: 1.12, transition: { type: "spring", stiffness: 300 } }}
+              />
+            </motion.div>
           </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="absolute bottom-8 left-0 right-0 text-center font-display text-xl sm:text-2xl md:text-3xl text-pringles-yellow tracking-wide z-20"
+          >
+            DESCUBRA OS SABORES ICÔNICOS DA PRINGLES
+          </motion.p>
 
           {/* Right can */}
           <motion.div
