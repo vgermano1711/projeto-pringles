@@ -1,9 +1,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ChevronDown } from "lucide-react";
 import pringlesOriginal from "@/assets/pringles-original.png";
 import pringlesScream from "@/assets/pringles-sour-cream.png";
-import pringlesLogo from "@/assets/pringles-logo.png";
+import pringlesCheddar from "@/assets/pringles-cheddar.png";
+import pringlesBbq from "@/assets/pringles-bbq.png";
 
 const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null);
