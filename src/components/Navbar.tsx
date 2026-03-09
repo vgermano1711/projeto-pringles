@@ -27,7 +27,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-primary-foreground/10"
-      style={{ background: "hsl(var(--pringles-dark) / 0.9)" }}
+      style={{ background: "rgba(0, 0, 0, 0.95)" }}
     >
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
         <img
