@@ -63,8 +63,8 @@ const HeroSection = () => {
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
             >
               <motion.img
-                src={pringlesCheddar}
-                alt="Pringles Cheddar"
+                src={pringlesPizza}
+                alt="Pringles Pizza"
                 className="w-full h-auto object-contain drop-shadow-2xl"
                 animate={{ y: [0, -10, 0], rotate: [-3, 3, -3] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
