@@ -1,3 +1,4 @@
+import { useState, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import CampaignSection from "@/components/CampaignSection";
@@ -5,10 +6,15 @@ import FlavorPreview from "@/components/FlavorPreview";
 import FeedbackSection from "@/components/FeedbackSection";
 import HomeCTA from "@/components/HomeCTA";
 import SectionDivider from "@/components/SectionDivider";
+import IntroAnimation from "@/components/IntroAnimation";
 
 const Index = () => {
+  const [introFinished, setIntroFinished] = useState(false);
+  const handleIntroFinish = useCallback(() => setIntroFinished(true), []);
+
   return (
     <div className="min-h-screen" style={{ background: "#1A1A1A" }}>
+      {!introFinished && <IntroAnimation onFinish={handleIntroFinish} />
       <Navbar />
       <HeroSection />
       <CampaignSection />
