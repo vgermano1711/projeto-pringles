@@ -1,101 +1,195 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { ShoppingBag, Sparkles } from "lucide-react";
-import pringlesLogo from "@/assets/pringles-logo.png";
+import { ShoppingBag, Sparkles, PartyPopper, Rocket } from "lucide-react";
+import pringlesOriginal from "@/assets/pringles-40g-original.png";
+import pringlesbbq from "@/assets/pringles-40g-bbq.png";
+import pringlessour from "@/assets/pringles-40g-sour-cream.png";
+
+const floatingChips = [
+  { src: pringlesOriginal, delay: 0, x: "10%", y: "15%", rotate: -15, size: "w-16 md:w-24" },
+  { src: pringlesbbq, delay: 0.3, x: "80%", y: "20%", rotate: 20, size: "w-14 md:w-20" },
+  { src: pringlessour, delay: 0.6, x: "85%", y: "70%", rotate: -10, size: "w-16 md:w-24" },
+  { src: pringlesOriginal, delay: 0.9, x: "5%", y: "75%", rotate: 25, size: "w-14 md:w-20" },
+];
+
+const emojis = ["🎉", "🔥", "😋", "🤩", "💥", "🎊"];
 
 const HomeCTA = () => {
   const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.85, 1]);
-  const textY = useTransform(scrollYProgress, [0, 0.5], [60, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.9, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   return (
-    <section ref={ref} className="py-32 relative overflow-hidden" style={{
-      background: "linear-gradient(180deg, hsl(var(--pringles-dark)) 0%, #3D0A0A 50%, hsl(var(--pringles-dark)) 100%)"
+    <section ref={ref} className="py-24 md:py-36 relative overflow-hidden" style={{
+      background: "radial-gradient(ellipse at 50% 30%, hsl(0 100% 44% / 0.25) 0%, hsl(var(--pringles-dark)) 70%)"
     }}>
-      {/* Animated rings */}
-      {[...Array(3)].map((_, i) => (
-        <motion.div
+      {/* Confetti-like floating emojis */}
+      {emojis.map((emoji, i) => (
+        <motion.span
           key={i}
-          className="absolute rounded-full border border-primary-foreground/8"
+          className="absolute text-2xl md:text-4xl select-none pointer-events-none"
           style={{
-            width: `${250 + i * 180}px`,
-            height: `${250 + i * 180}px`,
-            left: "50%", top: "50%", x: "-50%", y: "-50%",
+            left: `${10 + (i * 15)}%`,
+            top: `${15 + (i % 3) * 30}%`,
           }}
-          animate={{ scale: [1, 1.08, 1], rotate: [0, 360] }}
-          transition={{ duration: 25 + i * 8, repeat: Infinity, ease: "linear" }}
+          animate={{
+            y: [0, -30, 0],
+            rotate: [0, i % 2 === 0 ? 20 : -20, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 3 + i * 0.5,
+            repeat: Infinity,
+            delay: i * 0.4,
+            ease: "easeInOut",
+          }}
+        >
+          {emoji}
+        </motion.span>
+      ))}
+
+      {/* Floating product cans */}
+      {floatingChips.map((chip, i) => (
+        <motion.img
+          key={i}
+          src={chip.src}
+          alt=""
+          className={`absolute ${chip.size} opacity-40 pointer-events-none drop-shadow-2xl`}
+          style={{ left: chip.x, top: chip.y }}
+          animate={{
+            y: [0, -20, 0],
+            rotate: [chip.rotate, chip.rotate + 10, chip.rotate],
+          }}
+          transition={{
+            duration: 4 + i,
+            repeat: Infinity,
+            delay: chip.delay,
+            ease: "easeInOut",
+          }}
         />
       ))}
 
+      {/* Wavy top border */}
+      <div className="absolute top-0 left-0 right-0 overflow-hidden leading-none">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-8 md:h-12">
+          <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,0 L0,0 Z" fill="hsl(var(--pringles-dark))" />
+        </svg>
+      </div>
+
       <motion.div style={{ scale, opacity }} className="relative z-10 container mx-auto px-4 text-center">
-        {/* Logo watermark */}
-        <motion.img
-          src={pringlesLogo}
-          alt=""
-          className="w-20 h-20 mx-auto mb-6 opacity-80"
-          initial={{ scale: 0, rotate: -20 }}
+        {/* Fun badge */}
+        <motion.div
+          initial={{ scale: 0, rotate: -180 }}
           whileInView={{ scale: 1, rotate: 0 }}
           viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
-        />
+          transition={{ type: "spring", stiffness: 200, damping: 12 }}
+          className="inline-flex items-center gap-2 bg-pringles-yellow text-pringles-dark font-display text-xs md:text-sm px-5 py-2 rounded-full mb-8 shadow-lg"
+        >
+          <PartyPopper className="w-4 h-4" />
+          HORA DO LANCHE!
+          <PartyPopper className="w-4 h-4" />
+        </motion.div>
 
         <motion.h2
-          style={{ y: textY }}
-          className="font-display text-5xl md:text-8xl text-primary-foreground mb-6 leading-tight"
-        >
-          PRONTO PARA
-          <br />
-          <span className="text-pringles-yellow">ABRIR?</span>
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="text-primary-foreground/70 text-xl mb-12 max-w-lg mx-auto font-body"
+          transition={{ type: "spring", stiffness: 100 }}
+          className="font-display text-5xl md:text-9xl text-primary-foreground mb-2 leading-none"
         >
-          Escolha seu sabor favorito e descubra por que Pringles é o snack mais viciante do mundo.
+          PRONTO PRA
+        </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", stiffness: 120, delay: 0.15 }}
+          className="relative inline-block mb-8"
+        >
+          <span className="font-display text-6xl md:text-[10rem] leading-none text-pringles-yellow" style={{
+            textShadow: "0 0 40px hsl(48 100% 50% / 0.4), 0 4px 0 hsl(30 100% 40%)"
+          }}>
+            POP?!
+          </span>
+          <motion.span
+            className="absolute -top-4 -right-6 text-3xl md:text-5xl"
+            animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.2, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            💥
+          </motion.span>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="text-primary-foreground/60 text-lg md:text-xl mb-14 max-w-md mx-auto font-body"
+        >
+          Escolha seu sabor e entre na diversão! 🎉
         </motion.p>
 
-        {/* Visual CTA cards instead of simple buttons */}
+        {/* Fun CTA cards */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-5 justify-center max-w-2xl mx-auto"
+          transition={{ delay: 0.4, type: "spring" }}
+          className="flex flex-col sm:flex-row gap-6 justify-center max-w-xl mx-auto"
         >
           <motion.div
-            whileHover={{ scale: 1.04, y: -4 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.06, rotate: -2 }}
+            whileTap={{ scale: 0.95, rotate: 0 }}
             onClick={() => navigate("/produtos")}
-            className="flex-1 bg-black/20 backdrop-blur-md rounded-2xl p-6 cursor-pointer border border-primary-foreground/15 hover:border-pringles-yellow/50 transition-colors group"
+            className="flex-1 bg-primary/20 backdrop-blur-sm rounded-3xl p-7 cursor-pointer border-2 border-dashed border-primary/40 hover:border-pringles-yellow transition-colors group"
           >
-            <Sparkles className="w-8 h-8 text-pringles-yellow mb-3 mx-auto group-hover:animate-bounce" />
-            <h3 className="font-display text-xl text-primary-foreground mb-1">EXPERIÊNCIA PRINGLES</h3>
+            <motion.div
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <Rocket className="w-10 h-10 text-pringles-yellow mb-3 mx-auto" />
+            </motion.div>
+            <h3 className="font-display text-xl text-primary-foreground mb-1">EXPLORAR SABORES</h3>
             <p className="font-body text-sm text-primary-foreground/50">
-              Conheça cada sabor, história e curiosidade
+              Cada lata, uma aventura! 🚀
             </p>
           </motion.div>
 
           <motion.div
-            whileHover={{ scale: 1.04, y: -4 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.06, rotate: 2 }}
+            whileTap={{ scale: 0.95, rotate: 0 }}
             onClick={() => navigate("/comprar")}
-            className="flex-1 bg-pringles-yellow rounded-2xl p-6 cursor-pointer border-none shadow-xl group"
+            className="flex-1 bg-pringles-yellow rounded-3xl p-7 cursor-pointer shadow-2xl group relative overflow-hidden"
           >
-            <ShoppingBag className="w-8 h-8 text-pringles-dark mb-3 mx-auto group-hover:animate-bounce" />
-            <h3 className="font-display text-xl text-pringles-dark mb-1">ONDE COMPRAR</h3>
-            <p className="font-body text-sm text-pringles-dark/60">
-              Encontre Pringles perto de você
+            {/* Sparkle overlay */}
+            <motion.div
+              className="absolute inset-0 opacity-20"
+              style={{
+                background: "radial-gradient(circle at 30% 50%, hsl(var(--primary-foreground)) 0%, transparent 50%)"
+              }}
+              animate={{ x: ["-100%", "200%"] }}
+              transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+            />
+            <ShoppingBag className="w-10 h-10 text-pringles-dark mb-3 mx-auto group-hover:animate-bounce relative z-10" />
+            <h3 className="font-display text-xl text-pringles-dark mb-1 relative z-10">COMPRAR AGORA</h3>
+            <p className="font-body text-sm text-pringles-dark/60 relative z-10">
+              Corre que acaba! 😋
             </p>
           </motion.div>
         </motion.div>
       </motion.div>
+
+      {/* Wavy bottom border */}
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none rotate-180">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-8 md:h-12">
+          <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,0 L0,0 Z" fill="#111111" />
+        </svg>
+      </div>
     </section>
   );
 };
