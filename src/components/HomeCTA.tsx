@@ -14,7 +14,7 @@ const HomeCTA = () => {
 
   return (
     <section ref={ref} className="py-32 relative overflow-hidden" style={{
-      background: "linear-gradient(180deg, hsl(var(--pringles-dark)) 0%, #2A1A00 40%, hsl(var(--pringles-dark)) 100%)"
+      background: "linear-gradient(180deg, hsl(var(--pringles-dark)) 0%, #3D0A0A 50%, hsl(var(--pringles-dark)) 100%)"
     }}>
       {/* Animated rings */}
       {[...Array(3)].map((_, i) => (
