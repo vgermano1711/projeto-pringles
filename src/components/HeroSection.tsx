@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import pringlesOriginal from "@/assets/pringles-original.png";
 import pringlesScream from "@/assets/pringles-sour-cream.png";
-import pringlesCheddar from "@/assets/pringles-cheddar.png";
+import pringlesPizza from "@/assets/pringles-pizza.png";
 import pringlesBbq from "@/assets/pringles-bbq.png";
 
 const HeroSection = () => {
