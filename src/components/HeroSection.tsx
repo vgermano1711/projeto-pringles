@@ -92,7 +92,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-            className="absolute bottom-8 left-0 right-0 text-center font-display text-xl sm:text-2xl md:text-3xl text-pringles-yellow tracking-wide z-20"
+            className="absolute -bottom-16 left-0 right-0 text-center font-display text-xl sm:text-2xl md:text-3xl text-pringles-yellow tracking-wide z-20"
           >
             DESCUBRA OS SABORES ICÔNICOS DA PRINGLES
           </motion.p>
