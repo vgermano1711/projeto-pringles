@@ -3,13 +3,6 @@ import { useEffect, useState } from "react";
 import pringlesLogo from "@/assets/pringles-logo.png";
 import pringlesOriginal from "@/assets/pringles-original.png";
 import pringlesScream from "@/assets/pringles-sour-cream.png";
-import pringlesbbq from "@/assets/pringles-bbq.png";
-
-const cans = [
-  { src: pringlesOriginal, x: "-120%", y: "-30%", rotate: -25, delay: 0.2 },
-  { src: pringlesScream, x: "120%", y: "-20%", rotate: 25, delay: 0.35 },
-  { src: pringlesbbq, x: "-100%", y: "80%", rotate: -15, delay: 0.5 },
-];
 
 const chips = ["🎉", "💥", "🔥", "😋", "🤩", "🎊", "✨", "🎈"];
 
@@ -18,8 +11,8 @@ const IntroAnimation = ({ onFinish }: { onFinish: () => void }) => {
 
   useEffect(() => {
     const popTimer = setTimeout(() => setPhase("pop"), 1200);
-    const outTimer = setTimeout(() => setPhase("out"), 2200);
-    const doneTimer = setTimeout(() => onFinish(), 3000);
+    const outTimer = setTimeout(() => setPhase("out"), 2400);
+    const doneTimer = setTimeout(() => onFinish(), 3200);
     return () => {
       clearTimeout(popTimer);
       clearTimeout(outTimer);
@@ -48,30 +41,55 @@ const IntroAnimation = ({ onFinish }: { onFinish: () => void }) => {
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           />
 
-          {/* Flying cans from outside */}
-          {cans.map((can, i) => (
-            <motion.img
-              key={i}
-              src={can.src}
-              alt=""
-              className="absolute w-24 md:w-36 pointer-events-none drop-shadow-2xl"
-              initial={{ x: can.x, y: can.y, opacity: 0, rotate: can.rotate, scale: 0.5 }}
-              animate={
-                phase === "pop"
-                  ? { x: 0, y: 0, opacity: 1, rotate: 0, scale: 1.1 }
-                  : { x: can.x, y: can.y, opacity: 0, rotate: can.rotate, scale: 0.5 }
-              }
-              transition={{
-                duration: 0.7,
-                delay: can.delay,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              style={{
-                left: `${20 + i * 25}%`,
-                top: `${15 + i * 20}%`,
-              }}
-            />
-          ))}
+          {/* Left can — tilted diagonal, coming from bottom-left */}
+          <motion.img
+            src={pringlesOriginal}
+            alt="Pringles Original"
+            className="absolute w-36 sm:w-48 md:w-64 lg:w-72 pointer-events-none drop-shadow-2xl z-20"
+            style={{
+              left: "5%",
+              bottom: "8%",
+              transformOrigin: "center center",
+            }}
+            initial={{ x: "-120%", y: "120%", rotate: -45, opacity: 0, scale: 0.6 }}
+            animate={{
+              x: 0,
+              y: 0,
+              rotate: -35,
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{
+              duration: 0.9,
+              delay: 0.3,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          />
+
+          {/* Right can — tilted diagonal, coming from top-right */}
+          <motion.img
+            src={pringlesScream}
+            alt="Pringles Sour Cream"
+            className="absolute w-36 sm:w-48 md:w-64 lg:w-72 pointer-events-none drop-shadow-2xl z-20"
+            style={{
+              right: "5%",
+              top: "8%",
+              transformOrigin: "center center",
+            }}
+            initial={{ x: "120%", y: "-120%", rotate: 45, opacity: 0, scale: 0.6 }}
+            animate={{
+              x: 0,
+              y: 0,
+              rotate: 35,
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{
+              duration: 0.9,
+              delay: 0.4,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          />
 
           {/* Floating emojis */}
           {chips.map((emoji, i) => (
