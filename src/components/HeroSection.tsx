@@ -1,9 +1,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ChevronDown } from "lucide-react";
 import pringlesOriginal from "@/assets/pringles-original.png";
 import pringlesScream from "@/assets/pringles-sour-cream.png";
-import pringlesLogo from "@/assets/pringles-logo.png";
+import pringlesCheddar from "@/assets/pringles-cheddar.png";
+import pringlesBbq from "@/assets/pringles-bbq.png";
 
 const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,14 +23,6 @@ const HeroSection = () => {
     >
       {/* Background */}
       <div className="absolute inset-0 bg-pringles-red" />
-      <div
-        className="absolute inset-0 opacity-30 pointer-events-none"
-        style={{
-          backgroundImage: `url(${pringlesLogo})`,
-          backgroundSize: "120px",
-          backgroundRepeat: "repeat",
-        }}
-      />
 
       <motion.div style={{ opacity }} className="relative z-10 w-full max-w-6xl mx-auto px-4 pt-20">
         <div className="flex items-center justify-between gap-4 md:gap-8">
@@ -62,25 +54,48 @@ const HeroSection = () => {
             />
           </motion.div>
 
-          {/* Center content */}
-          <div className="flex flex-col items-center gap-4 md:gap-6 text-center flex-1 min-w-0">
+          {/* Center cans */}
+          <div className="flex items-center gap-2 md:gap-6 flex-1 justify-center">
             <motion.div
-              initial={{ y: -40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="w-28 sm:w-36 md:w-44"
+              initial={{ opacity: 0, y: 80, scale: 0.6 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
             >
-              <img src={pringlesLogo} alt="Pringles" className="h-48 md:h-72 w-auto mx-auto object-contain" style={{ transform: 'rotate(0deg)' }} />
+              <motion.img
+                src={pringlesCheddar}
+                alt="Pringles Cheddar"
+                className="w-full h-auto object-contain drop-shadow-2xl"
+                animate={{ y: [0, -10, 0], rotate: [-3, 3, -3] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{ scale: 1.12, transition: { type: "spring", stiffness: 300 } }}
+              />
             </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="font-display text-xl sm:text-2xl md:text-3xl text-pringles-yellow tracking-wide"
+            <motion.div
+              className="w-28 sm:w-36 md:w-44"
+              initial={{ opacity: 0, y: 80, scale: 0.6 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.7 }}
             >
-              DESCUBRA OS SABORES ICÔNICOS DA PRINGLES
-            </motion.p>
+              <motion.img
+                src={pringlesBbq}
+                alt="Pringles BBQ"
+                className="w-full h-auto object-contain drop-shadow-2xl"
+                animate={{ y: [0, -13, 0], rotate: [3, -3, 3] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                whileHover={{ scale: 1.12, transition: { type: "spring", stiffness: 300 } }}
+              />
+            </motion.div>
           </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="absolute bottom-8 left-0 right-0 text-center font-display text-xl sm:text-2xl md:text-3xl text-pringles-yellow tracking-wide z-20"
+          >
+            DESCUBRA OS SABORES ICÔNICOS DA PRINGLES
+          </motion.p>
 
           {/* Right can */}
           <motion.div
