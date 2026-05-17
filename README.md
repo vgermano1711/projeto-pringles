@@ -1,5 +1,7 @@
 # 🥤 Projeto Pringles
 
+> Aplicação web desenvolvida em TypeScript como estudo de desenvolvimento front-end moderno e tipagem estática.
+
 Aplicação web desenvolvida em **TypeScript** como projeto de estudo e experimentação com desenvolvimento front-end moderno.
 
 ---
